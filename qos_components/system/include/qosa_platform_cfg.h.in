@@ -1,0 +1,234 @@
+/*********************************************************************
+ * @file   osa_platform_config.h
+ * @brief  When adapting to various platforms, it is necessary to
+ *         ensure compatibility with system library functions used
+ *         on different platforms in order to prevent the inability
+ *         to run due to the absence of library functions when using
+ *          UniRTOS on new platforms.
+ * @author larson.li@quectel.com
+ * @date   2023-03-28
+ *
+ * @copyright  Copyright (c) 2023 Quectel Wireless Solution, Co., Ltd.
+ * All Rights Reserved. Quectel Wireless Solution Proprietary and Confidential.
+ *
+ * @par EDIT HISTORY FOR MODULE
+ * <table>
+ * <tr><th>Date       <th>Version    <th>Author          <th>Description"
+ * <tr><td>2023-03-28 <td>1.0        <td>Larson.Li       <td> Init
+ * </table>
+ **********************************************************************/
+
+#ifndef ___QOSA_PLATFORM_CONFIG_H__
+#define ___QOSA_PLATFORM_CONFIG_H__
+
+// Buffer array space size definition
+#define QOSA_ARRAY_BYTE_32                    32
+#define QOSA_ARRAY_BYTE_64                    64
+#define QOSA_ARRAY_BYTE_128                   128
+#define QOSA_ARRAY_BYTE_256                   256
+#define QOSA_ARRAY_BYTE_512                   512
+#define QOSA_ARRAY_BYTE_1024                  1024
+#define QOSA_ARRAY_BYTE_2048                  2048
+
+/************************************************************************/
+/* Define whether system function interfaces use platform interfaces or custom encapsulated interfaces */
+/************************************************************************/
+#cmakedefine CONFIG_QOSA_HAVE_MALLOC
+#cmakedefine CONFIG_QOSA_HAVE_STRSTR
+#cmakedefine CONFIG_QOSA_HAVE_STRCASECMP
+#cmakedefine CONFIG_QOSA_HAVE_STRNCPY
+#cmakedefine CONFIG_QOSA_HAVE_STRCPY
+#cmakedefine CONFIG_QOSA_HAVE_STRNCMP
+#cmakedefine CONFIG_QOSA_HAVE_STRCMP
+#cmakedefine CONFIG_QOSA_HAVE_STRLEN
+#cmakedefine CONFIG_QOSA_HAVE_STRNLEN
+#cmakedefine CONFIG_QOSA_HAVE_STRDUP
+#cmakedefine CONFIG_QOSA_HAVE_VSNPRINTF
+#cmakedefine CONFIG_QOSA_HAVE_SNPRINTF
+#cmakedefine CONFIG_QOSA_HAVE_VSPRINTF
+#cmakedefine CONFIG_QOSA_HAVE_SPRINTF
+#cmakedefine CONFIG_QOSA_HAVE_STRNCASECMP
+#cmakedefine CONFIG_QOSA_HAVE_STRCHR
+#cmakedefine CONFIG_QOSA_HAVE_STRTOUL
+#cmakedefine CONFIG_QOSA_HAVE_STRTOL
+#cmakedefine CONFIG_QOSA_HAVE_STRTOULL
+#cmakedefine CONFIG_QOSA_HAVE_SSCANF
+#cmakedefine CONFIG_QOSA_HAVE_STRRCHR
+#cmakedefine CONFIG_QOSA_HAVE_STRTOLL
+#cmakedefine CONFIG_QOSA_HAVE_STRTOD
+#cmakedefine CONFIG_QOSA_HAVE_STRCAT
+#cmakedefine CONFIG_QOSA_HAVE_STRNCAT
+#cmakedefine CONFIG_QOSA_HAVE_STRTOK
+#cmakedefine CONFIG_QOSA_HAVE_STRPBRK
+#cmakedefine CONFIG_QOSA_HAVE_STRSPN
+#cmakedefine CONFIG_QOSA_HAVE_STRCSPN
+#cmakedefine CONFIG_QOSA_HAVE_ATOI
+#cmakedefine CONFIG_QOSA_HAVE_ATOL
+#cmakedefine CONFIG_QOSA_HAVE_ATOF
+#cmakedefine CONFIG_QOSA_HAVE_SYSTEM
+#cmakedefine CONFIG_QOSA_HAVE_RAND
+#cmakedefine CONFIG_QOSA_HAVE_STRNSTR
+
+/************************************************************************/
+/* Platform difference related configuration */
+/************************************************************************/
+
+/** In normal compilation environments, long occupies 8 bytes under linux64/ARM64, while other Win32/win64/linux32/ARM32 occupy 4 bytes */
+/** Currently, do not enable this macro for Unisoc and Eigen platforms */
+#cmakedefine CONFIG_QOSA_HAVE_SYS_TPYE64
+
+/** Whether the platform supports C99 standard definition specifications, such as bool type int8_t/uint8_t and other types */
+#cmakedefine CONFIG_QOSA_PLATFORM_SUPPORT_C99
+
+/** Refine platform priority unit, if the platform's priority definition is larger with higher priority then it's negative, if priority is smaller with higher priority then it's positive */
+#cmakedefine CONFIG_QOSA_PRIORITY_GRANULARITY_NUM @CONFIG_QOSA_PRIORITY_GRANULARITY_NUM@
+
+/** Platform task priority configuration sequence */
+#cmakedefine CONFIG_QOSA_PRIORITY_REALTIME_CFG        @CONFIG_QOSA_PRIORITY_REALTIME_CFG@
+#cmakedefine CONFIG_QOSA_PRIORITY_HIGH_CFG            @CONFIG_QOSA_PRIORITY_HIGH_CFG@
+#cmakedefine CONFIG_QOSA_PRIORITY_ABOVE_NORMAL_CFG    @CONFIG_QOSA_PRIORITY_ABOVE_NORMAL_CFG@
+#cmakedefine CONFIG_QOSA_PRIORITY_NORMAL_CFG          @CONFIG_QOSA_PRIORITY_NORMAL_CFG@
+#cmakedefine CONFIG_QOSA_PRIORITY_BELOW_NORMAL_CFG    @CONFIG_QOSA_PRIORITY_BELOW_NORMAL_CFG@
+#cmakedefine CONFIG_QOSA_PRIORITY_LOW_CFG             @CONFIG_QOSA_PRIORITY_LOW_CFG@
+#cmakedefine CONFIG_QOSA_PRIORITY_IDLE_CFG            @CONFIG_QOSA_PRIORITY_IDLE_CFG@
+
+
+/** Define the maximum length of driver setting character names */
+#cmakedefine CONFIG_QOSA_DEVICE_NAME_MAX @CONFIG_QOSA_DEVICE_NAME_MAX@
+
+/** Define structure alignment length */
+#cmakedefine CONFIG_QOSA_ALIGN_SIZE @CONFIG_QOSA_ALIGN_SIZE@
+
+
+/* the max number that is allowed to be registered of every single event */
+/************************************************************************/
+/* A single Event type can accept up to 20 registered cb functions */
+/************************************************************************/
+// September 29, 2024, 20:38:49 If needed in the future, gradually increase to reduce space
+#cmakedefine CONFIG_QOSA_EVENT_NOTIFY_REGISTER_MAX_EVENT @CONFIG_QOSA_EVENT_NOTIFY_REGISTER_MAX_EVENT@
+
+/************************************************************************/
+/* File system corresponding space size configuration table */
+/************************************************************************/
+/** Maximum file name length */
+#cmakedefine CONFIG_QOSA_FILE_MAX_NAME_LEN @CONFIG_QOSA_FILE_MAX_NAME_LEN@
+
+/** Maximum folder path length */
+#cmakedefine CONFIG_QOSA_FILE_MAX_FOLDER_LEN @CONFIG_QOSA_FILE_MAX_FOLDER_LEN@
+
+/** Maximum file path prefix length eg: EXNSFFS: */
+#cmakedefine CONFIG_QOSA_FILE_PREFIX_LEN @CONFIG_QOSA_FILE_PREFIX_LEN@
+
+// Maximum length of NVM JSON node
+#cmakedefine CONFIG_QOSA_NVM_JSON_NODE_MAX_LEN @CONFIG_QOSA_NVM_JSON_NODE_MAX_LEN@
+
+/************************************************************************/
+/* fota configuration table */
+/************************************************************************/
+//fota updater report urc number
+#cmakedefine CONFIG_QOSA_FOTA_UPDATE_URC_MAX @CONFIG_QOSA_FOTA_UPDATE_URC_MAX@
+
+/************************************************************************/
+/* UniRTOS custom pool size calculation method */
+/************************************************************************/
+/** Custom heap header length */
+#cmakedefine CONFIG_QOSA_MEMORYI_HEAP_HEAD_SIZE @CONFIG_QOSA_MEMORYI_HEAP_HEAD_SIZE@
+
+/** Custom single ITEM size */
+#cmakedefine CONFIG_QOSA_MEMORY_BUF_ITEM_SIZE @CONFIG_QOSA_MEMORY_BUF_ITEM_SIZE@
+
+/** Custom ITEM count */
+#cmakedefine CONFIG_QOSA_MEMORY_BUF_ITEM_CNT @CONFIG_QOSA_MEMORY_BUF_ITEM_CNT@
+
+/************************************************************************/
+/* UniRTOS pdp activation profile related */
+/************************************************************************/
+/** pdp activation apn username password maximum length */
+#cmakedefine CONFIG_QOSA_PDP_USERPWD_PROFILE_SIZE @CONFIG_QOSA_PDP_USERPWD_PROFILE_SIZE@
+
+/************************************************************************/
+/* IP address length related */
+/************************************************************************/
+/** IPv4 address maximum length */
+#cmakedefine CONFIG_QOSA_INET_ADDRSTRLEN @CONFIG_QOSA_INET_ADDRSTRLEN@
+
+/** IPv6 address maximum length */
+#cmakedefine CONFIG_QOSA_INET6_ADDRSTRLEN @CONFIG_QOSA_INET6_ADDRSTRLEN@
+
+/** Maximum length of user input domain name */
+#cmakedefine CONFIG_QOSA_HOST_URL_MAX_LEN @CONFIG_QOSA_HOST_URL_MAX_LEN@
+
+/************************************************************************/
+/* unirtos platform level configuration macro definition */
+/************************************************************************/
+/** File system reserved space size, mainly reserved for NV saving */
+#cmakedefine CONFIG_QOSA_FILE_CONFIG_RESERVE_SIZE @CONFIG_QOSA_FILE_CONFIG_RESERVE_SIZE@
+
+/** System ticks per second */
+#cmakedefine CONFIG_QOSA_SYS_TICK_PER_SECOND @CONFIG_QOSA_SYS_TICK_PER_SECOND@
+
+/** Support unirtos custom mbedtls memory usage optimization and trimming */
+#cmakedefine CONFIG_QOSA_MBEDTLS_MEMORY_OPTIMIZTAION_SUPPORT
+
+/** Enable mbedTLS ECDHE-ECDSA key exchange support */
+#cmakedefine CONFIG_QOSA_MBEDTLS_ECDHE_ECDSA_SUPPORT
+
+/** Enable mbedTLS SHA384 hash algorithm support */
+#cmakedefine CONFIG_QOSA_MBEDTLS_SHA384_SUPPORT
+
+
+/************************************************************************/
+/* unirtos system side business task space configuration */
+/************************************************************************/
+// WIFISCAN TASK stack size
+#cmakedefine CONFIG_QOSA_COMP_WIFISCAN_TASK_SIZE @CONFIG_QOSA_COMP_WIFISCAN_TASK_SIZE@
+
+// DNS task stack size
+#cmakedefine CONFIG_QOSA_SYS_DNS_TASK_SIZE @CONFIG_QOSA_SYS_DNS_TASK_SIZE@
+
+// Destroy task stack size
+#cmakedefine CONFIG_QOSA_SYS_DESTROY_SIZE @CONFIG_QOSA_SYS_DESTROY_SIZE@
+
+// AT parser core center task stack size
+#cmakedefine CONFIG_QOSA_CENTER_TASK_STACK_SIZE @CONFIG_QOSA_CENTER_TASK_STACK_SIZE@
+
+/**
+ * @brief LPM thread stack size
+ * @brief Stack size for LPM task
+ */
+#cmakedefine CONFIG_QOSA_SYS_LPM_TASK_SIZE @CONFIG_QOSA_SYS_LPM_TASK_SIZE@
+
+/**
+ * @brief LPM thread stack size
+ * @brief Stack size for LPM RFR task
+ */
+#cmakedefine CONFIG_QOSA_SYS_LPM_RFR_TASK_SIZE @CONFIG_QOSA_SYS_LPM_RFR_TASK_SIZE@
+
+/**
+ * @brief LPM thread stack size
+ * @brief Stack size for LPM PLAT task
+ */
+#cmakedefine CONFIG_QOSA_SYS_LPM_PLAT_TASK_SIZE @CONFIG_QOSA_SYS_LPM_PLAT_TASK_SIZE@
+
+/**
+ * @brief LPM sleep debug thread stack size
+ * @brief Stack size for LPM task
+ */
+#cmakedefine CONFIG_QOSA_SYS_LPM_LOG_TASK_SIZE @CONFIG_QOSA_SYS_LPM_LOG_TASK_SIZE@
+
+/**
+ * @brief URC single send maximum
+ * @brief URC send max length
+ */
+#cmakedefine CONFIG_QOSA_URC_SEND_MAX_LEN @CONFIG_QOSA_URC_SEND_MAX_LEN@
+
+/**
+ * @brief SERIAL EVENT thread stack size
+ * @brief Stack size for SERIAL EVENT task
+ */
+#cmakedefine CONFIG_QOSA_SERIAL_EVENT_TASK_SIZE @CONFIG_QOSA_SERIAL_EVENT_TASK_SIZE@
+
+/** Has Watermark enabled item merge optimization */
+#cmakedefine CONFIG_QOSA_WATERMARK_ITEM_MERGE
+
+#endif /* ___QOSA_PLATFORM_CONFIG_H__ */

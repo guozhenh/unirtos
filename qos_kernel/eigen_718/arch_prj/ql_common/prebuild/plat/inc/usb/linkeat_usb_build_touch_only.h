@@ -1,0 +1,3 @@
+#ifndef __LINKFEAT_USB_BUILD_TOUCH_H__
+#define __LINKFEAT_USB_BUILD_TOUCH_H__
+#endif

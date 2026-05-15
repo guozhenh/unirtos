@@ -1,0 +1,11 @@
+#ifndef __USBD_OPEN_ERR_INFO_H__
+#define __USBD_OPEN_ERR_INFO_H__
+#define ERR_DEV_BASE  (-200)
+#define ERR_DEV_NUM_REDEF(err) (ERR_DEV_BASE + err)
+#define ERR_DEV_NO_CONNECT  ERR_DEV_NUM_REDEF(-2)
+#define ERR_DEV_RX_TIMOUT ERR_DEV_NUM_REDEF(-32)
+#define ERR_DEV_TX_TIMOUT ERR_DEV_NUM_REDEF(-33)
+
+
+#endif
+

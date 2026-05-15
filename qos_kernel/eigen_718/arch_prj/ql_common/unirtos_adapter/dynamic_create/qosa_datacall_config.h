@@ -1,0 +1,22 @@
+/* Copyright (C) 2020 UNIRTOS Technologies Limited and/or its affiliates("UNIRTOS").
+ * All rights reserved.
+ */
+
+#ifndef __QOSA_DATACALL_CONFIG__H__
+#define __QOSA_DATACALL_CONFIG__H__
+
+
+#define CONFIG_QOSA_DATACALL_LIGHT_MODE
+
+/* #undef CONFIG_QOSA_DATACALL_MPC_DEFINED_MASK */
+
+#define CONFIG_QOSA_DATACALL_PROFILES_STORE_IN_MPC
+
+/* #undef CONFIG_QOSA_DATACALL_LIGHT_MODE_SUPPORT_USBNET */
+
+/* #undef CONFIG_QOSA_DATACALL_LIGHT_MODE_SUPPORT_PPP */
+
+#define CONFIG_QOSA_DATACALL_PDPID_MAX 15
+
+
+#endif /* __QOSA_DATACALL_CONFIG__H__ */

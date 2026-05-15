@@ -1,0 +1,4 @@
+
+orsource "apps/Kconfig"
+orsource "components/Kconfig"
+orsource "system/Kconfig"

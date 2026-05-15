@@ -1,0 +1,614 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "UniRTOS system platform func config"
+
+config QOSA_HAVE_MALLOC
+    bool "Support for malloc"
+    default y
+
+config QOSA_HAVE_STRSTR
+    bool "Support for strstr"
+    default y
+
+config QOSA_HAVE_STRCASECMP
+    bool "Support for strcasecmp"
+    default y
+
+config QOSA_HAVE_STRNCPY
+    bool "Support for strncpy"
+    default y
+
+config QOSA_HAVE_STRCPY
+    bool "Support for strcpy"
+    default y
+
+config QOSA_HAVE_STRNCMP
+    bool "Support for strncmp"
+    default y
+
+config QOSA_HAVE_STRCMP
+    bool "Support for strcmp"
+    default y
+
+config QOSA_HAVE_STRLEN
+    bool "Support for strlen"
+    default y
+
+config QOSA_HAVE_STRNLEN
+    bool "Support for strnlen"
+    default y
+
+config QOSA_HAVE_STRDUP
+    bool "Support for strdup"
+    default y
+
+config QOSA_HAVE_VSNPRINTF
+    bool "Support for vsnprintf"
+    default y
+
+config QOSA_HAVE_SNPRINTF
+    bool "Support for snprintf"
+    default y
+
+config QOSA_HAVE_VSPRINTF
+    bool "Support for vsprintf"
+    default y
+
+config QOSA_HAVE_SPRINTF
+    bool "Support for sprintf"
+    default y
+
+config QOSA_HAVE_STRNCASECMP
+    bool "Support for strncasecmp"
+    default y
+
+config QOSA_HAVE_STRCHR
+    bool "Support for strchr"
+    default y
+
+config QOSA_HAVE_STRTOUL
+    bool "Support for strtoul"
+    default y
+
+config QOSA_HAVE_STRTOL
+    bool "Support for strtol"
+    default y
+
+config QOSA_HAVE_STRTOULL
+    bool "Support for strtoull"
+    default y
+
+config QOSA_HAVE_SSCANF
+    bool "Support for sscanf"
+    default y
+
+config QOSA_HAVE_STRRCHR
+    bool "Support for strrchr"
+    default y
+
+config QOSA_HAVE_STRTOLL
+    bool "Support for strtoll"
+    default y
+
+config QOSA_HAVE_STRTOD
+    bool "Support for strtod"
+    default y
+
+config QOSA_HAVE_STRCAT
+    bool "Support for strcat"
+    default y
+
+config QOSA_HAVE_STRNCAT
+    bool "Support for strncat"
+    default y
+
+config QOSA_HAVE_STRTOK
+    bool "Support for strtok"
+    default y
+
+config QOSA_HAVE_STRPBRK
+    bool "Support for strpbrk"
+    default y
+
+config QOSA_HAVE_STRSPN
+    bool "Support for strspn"
+    default y
+
+config QOSA_HAVE_STRCSPN
+    bool "Support for strcspn"
+    default y
+
+config QOSA_HAVE_ATOI
+    bool "Support for atoi"
+    default y
+
+config QOSA_HAVE_ATOL
+    bool "Support for atol"
+    default y
+
+config QOSA_HAVE_ATOF
+    bool "Support for atof"
+    default y
+
+config QOSA_HAVE_SYSTEM
+    bool "Support for system"
+    default y
+
+config QOSA_HAVE_RAND
+    bool "Support for rand"
+    default y
+
+config QOSA_HAVE_STRNSTR
+    bool "Support for strnstr"
+    default n
+
+# Under normal compilation environments, long occupies 8 bytes on linux64/ARM64, while other Win32/win64/linux32/ARM32 platforms occupy 4 bytes
+# Currently, this macro should not be enabled on the Spreadtrum Unisoc platform
+config QOSA_HAVE_SYS_TPYE64
+    bool "Support for 64-bit system type"
+    default y
+    help
+      This option enables support for 64-bit system types. Currently, it should not be enabled on the Spreadtrum platform.
+
+# Whether the platform supports C99 standard definitions, such as bool type int8_t/uint8_t etc.
+config QOSA_PLATFORM_SUPPORT_C99
+    bool "platform support c99"
+    default y
+
+# Fine-tune platform priority units. If the platform's priority definition is higher with larger values, it is negative; if smaller values mean higher priority, it is positive.
+config QOSA_PRIORITY_GRANULARITY_NUM
+    int "platform priority granularity"
+    default -1
+
+# Platform task priority configuration sequence
+config QOSA_PRIORITY_REALTIME_CFG
+    int "platform priority realtime"
+    default 99
+
+config QOSA_PRIORITY_HIGH_CFG
+    int "platform priority high"
+    default 80
+
+config QOSA_PRIORITY_ABOVE_NORMAL_CFG
+    int "platform priority above normal"
+    default 60
+
+config QOSA_PRIORITY_NORMAL_CFG
+    int "platform priority normal"
+    default 40
+
+config QOSA_PRIORITY_BELOW_NORMAL_CFG
+    int "platform priority below normal"
+    default 20
+
+config QOSA_PRIORITY_LOW_CFG
+    int "platform priority low"
+    default 10
+
+config QOSA_PRIORITY_IDLE_CFG
+    int "platform priority idle"
+    default 1
+
+# Define the maximum length of character names for drivers settings
+config QOSA_DEVICE_NAME_MAX
+    int "Maximum length of device name"
+    default 8
+    help
+      Set the maximum length of the device name.
+
+# Define structure alignment length
+config QOSA_ALIGN_SIZE
+    int "Alignment size for structures"
+    default 4
+    help
+      Set the alignment size for structures.
+
+#/* the max number that is allowed to be registered of every single event */
+#/****************************************************************************/
+#/* Single Event type can accept registration of up to 20 callback functions */
+#/****************************************************************************/
+# September 29, 2024 20:38:49 If needed later, gradually increase to reduce space
+config QOSA_EVENT_NOTIFY_REGISTER_MAX_EVENT
+    int "Maximum number of events for event notify register"
+    default 6
+    help
+      Set the maximum number of events for event notify register.
+
+
+#/************************************************************************/
+#/* File system corresponding space size configuration table             */
+#/************************************************************************/
+# Maximum file name length
+config QOSA_FILE_MAX_NAME_LEN
+    int "Maximum length of file name (without '\0')"
+    default 170
+    help
+      Set the maximum length of the file name (excluding the null terminator).
+
+# Maximum folder path length
+config QOSA_FILE_MAX_FOLDER_LEN
+    int "Maximum length of folder path (without '\0')"
+    default 180
+    help
+      Set the maximum length of the folder path (excluding the null terminator).
+
+# Maximum file path prefix length eg: EXNSFFS:
+config QOSA_FILE_PREFIX_LEN
+    int "Maximum length of file path prefix (without '\0')"
+    default 10
+    help
+      Set the maximum length of the file path prefix (excluding the null terminator). The maximum value is "EXNSFFS:".
+
+# NVM JSON node maximum length
+config QOSA_NVM_JSON_NODE_MAX_LEN
+    int "Maximum length of NVM JSON node"
+    default 40
+    help
+      Set the maximum length of the NVM JSON node.
+
+#/************************************************************************/
+#/* fota configuration table */
+#/************************************************************************/
+#fota updater report urc number
+config QOSA_FOTA_UPDATE_URC_MAX
+    int "Update URC number"
+    default 100
+    help
+      Set the number of upgrade URC.
+
+#/************************************************************************/
+#/* UniRTOS custom pool size calculation method                          */
+#/************************************************************************/
+# Custom heap header length
+config QOSA_MEMORYI_HEAP_HEAD_SIZE
+    int "Custom heap header size"
+    default 64
+    help
+      Set the custom heap header size.
+
+# Custom single ITEM size
+config QOSA_MEMORY_BUF_ITEM_SIZE
+    int "Size of a single memory buffer item"
+    default 256
+    help
+      Set the size of a single memory buffer item.
+
+# Custom ITEM count
+config QOSA_MEMORY_BUF_ITEM_CNT
+    int "Number of memory buffer items"
+    default 1024
+    help
+      Set the number of memory buffer items.
+
+#/************************************************************************/
+#/* UniRTOS pdp activation profile related                               */
+#/************************************************************************/
+# pdp activation apn maximum username/password length
+config QOSA_PDP_USERPWD_PROFILE_SIZE
+    int "Maximum length of PDP APN username and password"
+    default 129
+    help
+      Set the maximum length of the PDP APN username and password.
+
+#/************************************************************************/
+#/* IP address length related                                            */
+#/************************************************************************/
+# Maximum IPv4 address length
+config QOSA_INET_ADDRSTRLEN
+    int "Maximum length of IPv4 address"
+    default 16
+    help
+      Set the maximum length of the IPv4 address.
+
+# Maximum IPv6 address length
+config QOSA_INET6_ADDRSTRLEN
+    int "Maximum length of IPv6 address"
+    default 48
+    help
+      Set the maximum length of the IPv6 address.
+
+# Maximum domain name length for user input
+config QOSA_HOST_URL_MAX_LEN
+    int "Maximum length of user input domain name"
+    default 256
+    help
+      Set the maximum length of the user input domain name.
+
+#/************************************************************************/
+#/* mbedtls related configuration macro definitions                      */
+#/************************************************************************/
+config UNIRTOS_MBEDTLS_MEMORY_OPTIMIZTAION_SUPPORT
+    bool "Enable mbedTLS memory optimization support"
+    depends on QOSA_SSL_FUNC
+    depends on QOSA_MBEDTLS_LIBRARY_FUNC
+    default y
+    help
+      Enable mbedTLS memory optimization support. This option is enabled by default if mbedTLS support is enabled.
+
+config QOSA_MBEDTLS_ECDHE_ECDSA_SUPPORT
+    bool "Enable mbedTLS ECDHE-ECDSA key exchange"
+    depends on QOSA_SSL_FUNC
+    depends on QOSA_MBEDTLS_LIBRARY_FUNC
+    default n
+    help
+      This option is enabled by default if mbedTLS support is disabled.
+
+config QOSA_MBEDTLS_SHA384_SUPPORT
+    bool "Enable SHA384 cryptographic hash algorithm support in mbedTLS"
+    depends on QOSA_SSL_FUNC
+    depends on QOSA_MBEDTLS_LIBRARY_FUNC
+    default n
+    help
+      This option is enabled by default if mbedTLS support is disabled.
+
+#/************************************************************************/
+#/* unirtos platform level configuration macro definitions               */
+#/************************************************************************/
+# File system reserved space size, mainly reserved for NV storage
+config QOSA_FILE_CONFIG_RESERVE_SIZE
+    int "File system reserved space size"
+    default 10240
+    help
+      Set the reserved space size for the file system, primarily for NV storage.
+
+# Number of system ticks per second
+config QOSA_SYS_TICK_PER_SECOND
+    int "Number of ticks per second"
+    default 1000
+    help
+      Set the number of ticks per second.
+
+# WIFISCAN TASK stack size
+config QOSA_COMP_WIFISCAN_TASK_SIZE
+    int "Stack size for WIFISCAN task"
+    default 4096
+    help
+      Set the stack size for the WIFISCAN task.
+
+# DNS task stack size
+config QOSA_SYS_DNS_TASK_SIZE
+    int "Stack size for DNS task"
+    default 2048
+    help
+      Set the stack size for the DNS task.
+
+# Destroy task stack size
+config QOSA_SYS_DESTROY_SIZE
+    int "Stack size for destroy task"
+    default 2048
+    help
+      Set the stack size for the destroy task.
+
+# // center task core service task, also AT task
+config QOSA_CENTER_TASK_STACK_SIZE
+    int "Stack size for OSA center task"
+    default 32768
+    help
+      Set the stack size for the OSA center task.
+
+# LPM task stack size
+config QOSA_SYS_LPM_TASK_SIZE
+    int "Stack size for LPM task"
+    default 4096
+    help
+      Set the stack size for the LPM task.
+
+# LPM RFR task stack size
+config QOSA_SYS_LPM_RFR_TASK_SIZE
+    int "Stack size for LPM task"
+    default 2048
+    help
+      Set the stack size for the LPM RFR task.
+
+# LPM PLAT task stack size
+config QOSA_SYS_LPM_PLAT_TASK_SIZE
+    int "Stack size for LPM task"
+    default 1024
+    help
+      Set the stack size for the LPM PLAT task.
+
+# LPM log task stack size
+config QOSA_SYS_LPM_LOG_TASK_SIZE
+    int "Stack size for LPM task"
+    default 2048
+    help
+      Set the stack size for the LPM log task.
+
+# Remaining space after at sio high, URC send packet should not exceed this
+config QOSA_URC_SEND_MAX_LEN
+    int "URC send max length"
+    default 2048
+    help
+      Set the maximum length of the urc send.
+
+config QOSA_SERIAL_EVENT_TASK_SIZE
+    int "Stack size for SERIAL task"
+    default 20480
+    help
+      Set the stack size for the SERIAL EVENT task.
+
+#/************************************************************************/
+#/* vfs file platform level configuration macro definitions              */
+#/************************************************************************/
+
+config QOSA_VFS_SYS_STAT_H
+    string "platform sys/stat.h"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default "<sys/stat.h>"
+
+config QOSA_VFS_SYS_FCNTL_H
+    string "platform sys/fcntl.h,ff header files are not required, please use stdio.h instead"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default "<fcntl.h>"
+
+config QOSA_VFS_O_RDONLY
+    string "platform O_RDONLY macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_RDONLY
+
+config QOSA_VFS_O_WRONLY
+    string "platform O_WRONLY macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_WRONLY
+
+config QOSA_VFS_O_RDWR
+    string "platform O_RDWR macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_RDWR
+
+config QOSA_VFS_O_CREAT
+    string "platform O_CREAT macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_CREAT
+
+config QOSA_VFS_O_EXCL
+    string "platform O_EXCL macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_EXCL
+
+config QOSA_VFS_O_NOCTTY
+    string "platform O_NOCTTY macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_NOCTTY
+
+config QOSA_VFS_O_TRUNC
+    string "platform O_TRUNC macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_TRUNC
+
+config QOSA_VFS_O_APPEND
+    string "platform O_APPEND macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_APPEND
+
+config QOSA_VFS_O_NONBLOCK
+    string "platform O_NONBLOCK macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_NONBLOCK
+
+config QOSA_VFS_O_NDELAY
+    string "platform O_NDELAY macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_NDELAY
+
+config QOSA_VFS_O_SYNC
+    string "platform O_SYNC macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_SYNC
+
+config QOSA_VFS_O_NOFOLLOW
+    string "platform O_NOFOLLOW macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_NOFOLLOW
+
+config QOSA_VFS_O_DIRECTORY
+    string "platform O_DIRECTORY macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default O_DIRECTORY
+
+config QOSA_VFS_S_IRWXU
+    string "platform S_IRWXU macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IRWXU
+
+config QOSA_VFS_S_IRUSR
+    string "platform S_IRUSR macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IRUSR
+
+config QOSA_VFS_S_IWUSR
+    string "platform S_IWUSR macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IWUSR
+
+config QOSA_VFS_S_IXUSR
+    string "platform S_IXUSR macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IXUSR
+
+config QOSA_VFS_S_IRWXG
+    string "platform S_IRWXG macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IRWXG
+
+config QOSA_VFS_S_IRGRP
+    string "platform S_IRGRP macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IRGRP
+
+config QOSA_VFS_S_IWGRP
+    string "platform S_IWGRP macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IWGRP
+
+config QOSA_VFS_S_IXGRP
+    string "platform S_IXGRP macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IXGRP
+
+config QOSA_VFS_S_IRWXO
+    string "platform S_IRWXO macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IRWXO
+
+config QOSA_VFS_S_IROTH
+    string "platform S_IROTH macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IROTH
+
+config QOSA_VFS_S_IWOTH
+    string "platform S_IWOTH macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IWOTH
+
+config QOSA_VFS_S_IXOTH
+    string "platform S_IXOTH macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IXOTH
+
+config QOSA_VFS_S_IFDIR
+    string "platform S_IFDIR macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IFDIR
+
+config QOSA_VFS_S_IFREG
+    string "platform S_IFREG macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default S_IFREG
+
+config QOSA_VFS_SEEK_SET
+    string "platform SEEK_SET macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default SEEK_SET
+
+config QOSA_VFS_SEEK_CUR
+    string "platform SEEK_CUR macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default SEEK_CUR
+
+config QOSA_VFS_SEEK_END
+    string "platform SEEK_END macro definition"
+	depends on !QOSA_QT2131_PLATFORM_FUNC
+    default SEEK_END
+
+#/************************************************************************/
+#/* watermark platform level configuration macro definitions             */
+#/************************************************************************/
+config QOSA_WATERMARK_ITEM_MERGE
+    bool "watermark item merge"
+    default n
+
+#/************************************************************************/
+#/* psm platform differentiation features                                */
+#/************************************************************************/
+config QOSA_LPM_PSM_SUPPORT_FUNC
+    bool "Support for psm mode"
+    default n
+
+config QOSA_LPM_SLEEP_LOG_FUNC
+    bool "Support for sleep log select"
+    default n
+
+endmenu

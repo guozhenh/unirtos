@@ -1,0 +1,61 @@
+{
+	"asr_1903": [
+		"RG255AACN_AA"
+	],
+
+	"asr_160x": [
+		"EG810MEU_LA"
+	],
+
+	"eigen": [
+		"EC600ECN_LC",
+		"EC800ECN_LC",
+		"EC800ECN_LC_WDF",
+		"EC600ECN_LC_AEF",
+		"EC800ECN_LC_AEF",
+		"EC800ECN_LC_AUD",
+		"EC600ECN_LC_AUD"
+	],
+
+	"eigen_718": [
+		"EG800ZEU_LA",
+		"EG800ZCN_LA",
+		"EC800ZCN_LF",
+		"EG800ZLA_LA",
+		"EG800ZGL_LA",
+		"EG800ZCN_LG",
+		"EG800ZCN_LH",
+		"EG800ZEU_LH",
+		"EG915ZEU_LA",
+		"EG800ZEU_LG"
+	],
+
+	"rda_8910_R05": [
+		"EC600UCN_LB"
+	],
+
+	"qcx217": [
+		"EG915LAF_LP"
+	],
+
+	"Linux": [
+		"ubuntu"
+	],
+	
+	"uis8852": [
+		"EC800UGCN_LB"
+	],
+
+	"qcx216": [
+		"EG800QEU_LC",
+		"EG800QNA_LC",
+		"EG800QNAD_LC",
+		"EG800QIN_LC",
+		"EG915QNA_LC",
+		"EG915QNA_LG",
+		"EG915QAF_LG",
+		"EG916QGL_LG",
+		"EG915QJP_LC",
+		"EG915QJP_LG"
+	]
+}

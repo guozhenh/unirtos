@@ -1,0 +1,111 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+# Kconfig file in components
+
+menu "UniRTOS components func config"
+
+config QCM_MINI_HTTP_SACK_FUNC
+    bool "support tcp sack?"
+    depends on QCM_MINI_HTTP_FUNC
+    default n
+
+# // OSA socket monitor task, mainly handles socket events
+config QCM_MONITOR_TASK_STACK_SIZE
+    int "Stack size for OSA socket monitor task"
+    default 2048
+    help
+      Set the stack size for the OSA socket monitor task.
+
+# // lwm2m coap fota task stack size
+config QCM_LWM2M_COPA_FOTA_STACK_SIZE
+    int "Stack size for lwm2m coap fota task"
+    default 4096
+    help
+      Set the stack size for the lwm2m coap fota task.
+
+# // LWM2M app task stack size
+config QCM_LWM2M_TASK_STACK_SIZE
+    int "Stack size for LWM2M app task"
+    default 10240
+    help
+      Set the stack size for the LWM2M app task.
+
+# // lwm2m coap fota task stack size
+config QCM_LWM2M_COPA_FOTA_STACK_SIZE
+    int "Stack size for lwm2m coap fota task"
+    default 4096
+    help
+      Set the stack size for the lwm2m coap fota task.
+
+# // MMS business task
+config QCM_MMS_TASK_STACK_SIZE
+    int "Stack size for MMS business task"
+    default 8192
+    help
+      Set the stack size for the MMS business task.
+
+# // MQTT business layer task stack size
+config QCM_MQTT_TASK_STACK_SIZE
+    int "Stack size for MQTT business layer task"
+    default 8192
+    help
+      Set the stack size for the MQTT business layer task.
+
+# // NTP TASK stack size
+config QCM_NTP_TASK_SIZE
+    int "Stack size for NTP task"
+    default 4096
+    help
+      Set the stack size for the NTP task.
+
+# // websocket task stack size
+config QCM_WEB_CLIENT_TASK_SIZE
+    int "Stack size for WebSocket client task"
+    default 20480
+    help
+      Set the stack size for the WebSocket client task.
+
+# // qurl conn deal缓存大小
+config OSA_CONN_DEAL_CACHE_SIZE
+    int "qurl conn deal cache size"
+    default 2048
+    help
+      Set the cache size for qurl conn deal.
+
+# // ping thread stack size
+config QCM_PING_TASK_STACK_SIZE
+    int "Stack size for ping task"
+    default 4096
+    help
+      Set the stack size for the ping task.
+
+# // LBS TASK stack size
+config QCM_LBS_TASK_SIZE
+    int "Stack size for LBS task"
+    default 20480
+    help
+      Set the stack size for the LBS task.
+
+# // SBFOTA thread stack size
+config QCM_SBFOTA_TASK_STACK_SIZE
+    int "Stack size for SBFOTA task"
+    default 4096
+    help
+      Set the stack size for the SBFOTA task.
+
+# // MQTT supports network disconnection monitoring, cfun0 network disconnection QMTSTAT returns QCM_MQTT_CLOSE_BY_PDP_DEACTED
+config QCM_MQTT_USE_NET_DOWN_EVENT
+    bool "NET DOWN EVENT Notice to MQTT Application"
+    default n
+
+# // URC RI thread stack size
+config QCM_URC_RI_TASK_STACK_SIZE
+    int "Stack size for URC RI task"
+    default 4096
+    help
+      Set the stack size for the URC RI task.
+
+
+endmenu

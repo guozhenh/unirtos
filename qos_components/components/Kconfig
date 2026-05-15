@@ -1,0 +1,231 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "UniRTOS components"
+
+config QCM_FILE_API_FUNC
+    bool "UniRTOS file api interface function"
+    select QOSA_VFS_FILESYSTEM_FUNC
+    select QCM_UTILS_UTF8_FUNC
+    default y
+
+config QCM_SOCKET_ADP_FUNC
+    bool "UniRTOS socket adapter function"
+    default y
+
+config QCM_VTLS_FUNC
+    bool "UniRTOS Vtls ssl function"
+    select QOSA_SSL_FUNC
+    select QCM_UTILS_UTILS_FUNC
+    default n
+
+config QCM_QURL_FUNC
+    bool "UniRTOS qurl function"
+    select QCM_SOCKET_ADP_FUNC
+    default n
+
+config QCM_QURL_HTTP_FUNC
+    bool "UniRTOS qurl http function"
+    select QCM_QURL_FUNC
+    default n
+
+config QCM_QURL_FTP_FUNC
+    bool "UniRTOS qurl ftp function"
+    select QCM_QURL_FUNC
+    default n
+
+config QCM_QURL_SMTP_FUNC
+    bool "UniRTOS qurl smtp function"
+    select QCM_QURL_FUNC
+    default n
+
+config QCM_UTILS_BASE64_FUNC
+    bool "support base64 decode and encode"
+    default n
+
+config QCM_UTILS_TLV_FUNC
+    bool "support tlv"
+    default n
+
+config QCM_UTILS_UTF8_FUNC
+    bool "support check UTF-8 characters"
+    default n
+
+config QCM_UTILS_UTILS_FUNC
+    bool "support public character process functions"
+    default n
+
+config QCM_UTILS_XMODEM_FUNC
+    bool "UniRTOS XMODEM file function"
+    default n
+
+config QCM_MINI_HTTP_FUNC
+    bool "UniRTOS mini http function"
+    select QCM_SOCKET_ADP_FUNC
+    default n
+
+config QCM_LBS_FUNC
+    bool "UniRTOS lbs function"
+    select QCM_SOCKET_ADP_FUNC
+    select QCM_UTILS_TLV_FUNC
+    select QCM_UTILS_UTILS_FUNC
+    depends on (QCM_QURL_FUNC || QCM_MINI_HTTP_FUNC)
+    default n
+
+config QCM_MMS_FUNC
+    bool "UniRTOS mms function"
+    select QCM_SOCKET_ADP_FUNC
+    select QCM_FILE_API_FUNC
+    default n
+
+config QCM_MQTT_FUNC
+    bool "UniRTOS mqtt function"
+    select QCM_SOCKET_ADP_FUNC
+    select QCM_UTILS_UTF8_FUNC
+    imply QCM_MQTT5_FUNC
+    default n
+
+config QCM_MQTT5_FUNC
+    bool "UniRTOS mqtt5.0 function"
+    default n
+
+config QCM_FILE_SFS_FUNC
+    bool "UniRTOS file sfs(SFS:) function"
+    select QCM_FILE_API_FUNC
+    select QOSA_SSL_FUNC
+    default n
+
+config QCM_NTP_FUNC
+    bool "UniRTOS ntp function"
+    select QCM_SOCKET_ADP_FUNC
+    default n
+
+config QCM_SBFOTA_FUNC
+    bool "UniRTOS sbfota function"
+    select QCM_SOCKET_ADP_FUNC
+    select QCM_UTILS_UTF8_FUNC
+    select QCM_UTILS_UTILS_FUNC
+    select QCM_QURL_FUNC
+    default n
+
+config QCM_WEBSOCKET_FUNC
+    bool "Enable OSA_WEBSOCKET"
+    select QCM_SOCKET_ADP_FUNC
+    select QCM_UTILS_BASE64_FUNC
+    default n
+
+config QCM_PING_FUNC
+    bool "UniRTOS ping function"
+    select QCM_SOCKET_ADP_FUNC
+    default n
+
+config QCM_COAP_FUNC
+    bool "Enable OSA_LWM2M"
+    select QCM_SOCKET_ADP_FUNC
+    default n
+
+config QCM_COAP_API_FUNC
+    bool "Enable OSA_LWM2M"
+    select QCM_COAP_FUNC
+    default n
+
+config QCM_LWM2M_FUNC
+    bool "Enable OSA_LWM2M"
+    select QCM_COAP_FUNC
+    select QCM_SOCKET_ADP_FUNC
+    select QCM_FILE_API_FUNC
+    default n
+
+config QCM_LWM2M_DTLS_FUNC
+    bool "Enable QCM_LWM2M_MBEDTLS"
+    select QCM_LWM2M_FUNC
+    select QCM_VTLS_FUNC
+    default n
+
+config QCM_LWM2M_FOTA_FUNC
+    bool "Enable QCM_LWM2M_FOTA"
+    select QCM_LWM2M_FUNC
+    select QCM_QURL_FUNC
+    default n
+
+config QCM_URC_FUNC
+    bool "UniRTOS urc function"
+    default n
+
+config QCM_UART_LOG_FUNC
+    bool "UniRTOS uart log function"
+    default n
+	
+config QCM_SPI_NOR_FUNC
+    bool "UniRTOS spi nor function"
+    select QOSA_SPI_FUNC
+    default n
+
+config QCM_DMHTTP_FUNC
+    bool "UniRTOS dmhttp function"
+    select QCM_QURL_FUNC
+    select QCM_FILE_API_FUNC
+    select QCM_UTILS_BASE64_FUNC
+    select QCM_UTILS_UTILS_FUNC
+    default n
+
+config QCM_VIRT_AT_FUNC
+    bool "UniRTOS virt at function"
+    select QOSA_VIRT_AT_FUNC
+    default n
+
+config QCM_QVSIM_FUNC
+    bool "UniRTOS  QVSIM function"
+    select QCM_FILE_API_FUNC
+    select QCM_SOCKET_ADP_FUNC
+    select QCM_QURL_FUNC
+    default n
+
+config QCM_AUDIO_STREAM_FUNC
+    bool "UniRTOS audio stream function"
+    select QOSA_AUDIO_DRIVER
+    select QCM_AUDIO_MP3_FUNC
+    select QCM_AUDIO_AMR_FUNC
+    default n
+
+config QCM_AUDIO_MP3_FUNC
+    bool "UniRTOS audio mp3 function"
+    default n
+
+config QCM_AUDIO_AMR_FUNC
+    bool "UniRTOS audio mp3 function"
+    default n
+
+config QCM_ESIM_FUNC
+    bool "UniRTOS esim function"
+    select QCM_UTILS_UTILS_FUNC
+    select QCM_QURL_FUNC
+    default n
+
+config QCM_MBEDTLS_LIBRARY_FUNC
+    bool "UniRTOS mbedtls function"
+    default n
+
+config QCM_MBEDTLS_2_LIBRARY_FUNC
+    bool "UniRTOS mbedtls2 function"
+    default n
+
+config QCM_MBEDTLS_4_LIBRARY_FUNC
+    bool "UniRTOS mbedtls4 function"
+    default n
+
+config QCM_MBEDTLS_CONFIG_FILE
+    bool "UniRTOS mbedtls file function"
+    default n
+
+config QCM_GNSS_FUNC
+    bool "UniRTOS gnss function"
+    select QCM_QURL_FUNC
+    select QCM_NTP_FUNC
+    default n
+
+
+orsource "comp_config.Kconfig"
+endmenu
+

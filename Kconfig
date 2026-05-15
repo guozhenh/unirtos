@@ -1,0 +1,9 @@
+
+# January 22, 2025, 13:35:59
+# larson.li
+# Project configuration initialization
+
+mainmenu "uniRTOS configuration"
+
+orsource "qos_applications/Kconfig"
+orsource "qos_components/Kconfig"

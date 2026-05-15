@@ -1,0 +1,14 @@
+
+# January 22, 2025, 13:35:59
+# larson.li
+# Project configuration initialization
+
+menu "UniRTOS Applications"
+
+config QAPP_UNIRTOS_STD_FUNC
+    bool "Standard AT command implementation"
+    select QOSA_AT_PARSER_FUNC
+
+orsource "unirtos_std/Kconfig"
+
+endmenu

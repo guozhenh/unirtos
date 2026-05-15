@@ -1,0 +1,41 @@
+Quectel Custom Source License for UniRTOS
+
+Copyright (c) 2023-2026, Quectel Wireless Solutions Co., Ltd.
+All rights reserved.
+
+This is a Quectel custom source-available license. It is not the BSD 3-Clause
+license and should not be described as an open source license.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of Quectel Wireless Solutions Co., Ltd. nor the names of
+   its contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+4. This software, with or without modification, must only be used with a
+   Quectel Wireless Solutions Co., Ltd. integrated circuit, module, or
+   product.
+
+This license applies to Quectel-authored portions of this software. Third-party
+software included with this software remains subject to its own license terms,
+notices, and attribution requirements.
+
+THIS SOFTWARE IS PROVIDED BY QUECTEL WIRELESS SOLUTIONS CO., LTD. AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, NONINFRINGEMENT, AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL QUECTEL
+WIRELESS SOLUTIONS CO., LTD. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

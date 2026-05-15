@@ -1,0 +1,11 @@
+add_subdirectory_if_exist(app_init)
+if(CONFIG_QAPP_UNIRTOS_STD_FUNC)
+    add_subdirectory_if_exist(unirtos_std)
+endif()
+add_subdirectory_if_exist(apps)
+
+collect_qos_application_projects(${CMAKE_CURRENT_SOURCE_DIR} external_qos_application_dirs)
+foreach(external_qos_application_dir ${external_qos_application_dirs})
+    message(STATUS "Auto-discovered external application: ${external_qos_application_dir}")
+    add_subdirectory(${external_qos_application_dir})
+endforeach()

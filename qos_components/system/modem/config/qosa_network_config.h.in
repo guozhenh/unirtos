@@ -1,0 +1,98 @@
+/* Copyright (C) 2020 UNIRTOS Technologies Limited and/or its affiliates("UNIRTOS").
+ * All rights reserved.
+ */
+
+#ifndef __QOSA_NETWORK_CONFIG__H__
+#define __QOSA_NETWORK_CONFIG__H__
+
+/**
+ * whether support GSM or not
+ */
+#cmakedefine CONFIG_QOSA_NW_GSM_SUPPORT
+/**
+ * whether whether support WCDMA or not
+ */
+#cmakedefine CONFIG_QOSA_NW_WCDMA_SUPPORT
+/**
+ * whether whether support LTE or not
+ */
+#cmakedefine CONFIG_QOSA_NW_LTE_SUPPORT
+/**
+ * whether whether support NR or not
+ */
+#cmakedefine CONFIG_QOSA_NW_NR_SUPPORT
+/**
+ * is LTE only module?
+ */
+#cmakedefine CONFIG_QOSA_NW_LTE_ONLY
+/**
+ * whether nw reject cause is supported
+ */
+#cmakedefine CONFIG_QOSA_NW_REJECT_CAUSE_SUPPORT
+
+/**
+ * UniRTOS nw nb support
+ */
+#cmakedefine CONFIG_QOSA_NW_NB_SUPPORT
+
+/**
+ * UniRTOS nw bju support
+ */
+#cmakedefine CONFIG_QOSA_NW_BJU_SUPPORT
+
+/** 配置干扰检测shakeperiod的默认值，各个平台不同 */
+/** Configure the default number of Jamming detection for shakeperiod */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_SHAKEPERIOD_DEFAULT @CONFIG_UNIRTOS_JAMM_DETECT_SHAKEPERIOD_DEFAULT@
+
+/** 配置干扰检测rssi的默认值，各个平台不同 */
+/** Configure the default number of Jamming detection for rssi */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_RSSI_DEFAULT @CONFIG_UNIRTOS_JAMM_DETECT_RSSI_DEFAULT@
+
+/** 配置干扰检测rssi的最大值，各个平台不同 */
+/** Configure the maximum number of Jamming detection for rssi */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_RSSI_MAX @CONFIG_UNIRTOS_JAMM_DETECT_RSSI_MAX@
+
+/** 配置干扰检测rssi的最小值，各个平台不同 */
+/** Configure the minimum number of Jamming detection for rssi */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_RSSI_MIN @CONFIG_UNIRTOS_JAMM_DETECT_RSSI_MIN@
+
+/** 配置干扰检测rsrq的默认值，各个平台不同 */
+/** Configure the default number of Jamming detection for rsrq */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_RSRQ_DEFAULT @CONFIG_UNIRTOS_JAMM_DETECT_RSRQ_DEFAULT@
+
+/** 配置干扰检测rsrq的最大值，各个平台不同 */
+/** Configure the maximum number of Jamming detection for rsrq */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_RSRQ_MAX @CONFIG_UNIRTOS_JAMM_DETECT_RSRQ_MAX@
+
+/** 配置干扰检测rsrq的最小值，各个平台不同 */
+/** Configure the minimum number of Jamming detection for rsrq */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_RSRQ_MIN @CONFIG_UNIRTOS_JAMM_DETECT_RSRQ_MIN@
+
+/** 配置干扰检测rsrp的默认值，各个平台不同 */
+/** Configure the default number of Jamming detection for rsrp */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_RSRP_DEFAULT @CONFIG_UNIRTOS_JAMM_DETECT_RSRP_DEFAULT@
+
+/** 配置干扰检测sinr的默认值，各个平台不同 */
+/** Configure the default number of Jamming detection for sinr */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_SINR_DEFAULT @CONFIG_UNIRTOS_JAMM_DETECT_SINR_DEFAULT@
+
+/** 配置干扰检测sinr的最大值，各个平台不同 */
+/** Configure the maximum number of Jamming detection for sinr */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_SINR_MAX @CONFIG_UNIRTOS_JAMM_DETECT_SINR_MAX@
+
+/** 配置干扰检测sinr的最小值，各个平台不同 */
+/** Configure the minimum number of Jamming detection for sinr */
+#cmakedefine CONFIG_UNIRTOS_JAMM_DETECT_SINR_MIN @CONFIG_UNIRTOS_JAMM_DETECT_SINR_MIN@
+
+/** Configure the modem task stack size */
+#cmakedefine CONFIG_QOSA_MODEM_TASK_STACK_SIZE @CONFIG_QOSA_MODEM_TASK_STACK_SIZE@
+
+
+/**UNIRTOS Region Division Operator */
+#cmakedefine CONFIG_QOSA_OPER_CN_AREA 
+#cmakedefine CONFIG_QOSA_OPER_LA_AREA 
+#cmakedefine CONFIG_QOSA_OPER_EU_AREA 
+#cmakedefine CONFIG_QOSA_OPER_NA_AREA
+#cmakedefine CONFIG_QOSA_OPER_OC_AREA
+#cmakedefine CONFIG_QOSA_OPER_GL_AREA 
+#endif

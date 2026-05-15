@@ -1,0 +1,43 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+set(target qurl_sdk_app)
+
+# Fixed SDK output directories.
+## Executable output path.
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+set(CMAKE_FW_OUTPUT_DIRECTORY      "${CMAKE_BINARY_DIR}/out")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/libs")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/out/libs")
+
+# Generate configuration header input.
+project(${target} VERSION 0.0.1 LANGUAGES C CXX ASM)
+
+# Sources
+set(src_qurl
+    qurl_app_main.c
+)
+
+link_directories(${CMAKE_SOURCE_DIR}/libs)
+
+add_executable(${target}.elf ${src_qurl})
+add_custom_command(TARGET ${target}.elf POST_BUILD
+    COMMAND ${CMAKE_OBJCOPY} -O binary ${target}.elf ${target}.bin
+    COMMAND ${CMAKE_OBJCOPY} ${target}.elf ${CMAKE_FW_OUTPUT_DIRECTORY}/${target}.elf
+    COMMAND ${CMAKE_SIZE} ${target}.elf
+    VERBATIM)
+
+## Port libraries
+set(QURL_USER_PORT_LIBS
+    pthread
+    rt
+    c
+    m
+    mbedtls
+    mbedx509
+    mbedcrypto
+CACHE INTERNAL "qurl user libs")
+
+target_link_libraries(${target}.elf PRIVATE qurl ${QURL_USER_PORT_LIBS} qurl_apps)
+target_include_directories(${target}.elf PUBLIC include)
+
+add_subdirectory(apps)

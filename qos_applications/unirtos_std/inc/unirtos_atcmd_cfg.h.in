@@ -1,0 +1,1022 @@
+/* Copyright (C) 2020 UNIRTOS Technologies Limited and/or its affiliates("UNIRTOS").
+ * All rights reserved.
+ */
+
+#ifndef _UNIRTOS_ATCMD_CFG_H_
+#define _UNIRTOS_ATCMD_CFG_H_
+
+// ============================================================================
+// UniRTOS ATC SUPPORT START
+// ============================================================================
+
+/**
+ * UniRTOS secboot std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SECBOOT_AT_FUNC
+
+/**
+ * QUECTEL license at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_LICENSE_AT_FUNC
+
+/**
+ * UniRTOS std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_FUNC
+
+/**
+ * UniRTOS Camera AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_CAMERA_AT_FUNC
+
+/**
+ * UniRTOS Camera AI AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_CAMERA_WATER_METER_AI_AT_FUNC
+
+/**
+ * UniRTOS File AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_FILE_AT_FUNC
+
+/**
+ * UniRTOS tcp/ip atc function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_TCPIP_AT_FUNC
+
+/**
+ * UniRTOS tcp/ip nb atc function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_TCPIP_NB_AT_FUNC
+
+/**
+ * UniRTOS nb atc function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_NB_AT_FUNC
+
+/**
+ * UniRTOS jd atc function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_JD_AT_FUNC
+
+/**
+ * UniRTOS ssl std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SSL_AT_FUNC
+
+/**
+ * UniRTOS ssl std at psk function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SSL_AT_PSK_FUNC
+
+/**
+ * UniRTOS tls1.3 function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_TLS1_3
+
+/**
+ * UniRTOS http atc function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_HTTP_AT_FUNC
+
+/**
+ * UniRTOS ftp atc function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_FTP_AT_FUNC
+
+/**
+ * UniRTOS gcov std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_GCOV_AT_FUNC
+
+/**
+ * UniRTOS coap std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_COAP_AT_FUNC
+
+/**
+ * UniRTOS lwm2m std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_LWM2M_AT_FUNC
+
+/**
+ * UniRTOS smtp atc function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SMTP_AT_FUNC
+
+/**
+ * UniRTOS lwm2m onenet std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_ONENET_LWM2M_AT_FUN
+
+/**
+ * UniRTOS lwm2m aep std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AEP_LWM2M_AT_FUN
+
+/**
+ * UniRTOS mms std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_MMS_AT_FUNC
+
+/**
+ * UniRTOS unify std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_UNIFY_AT_FUNC
+
+/**
+ * UniRTOS unify identity function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_UNIFY_IDENTITY_FUNC
+
+/**
+ * UniRTOS mqtt std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_MQTT_AT_FUNC
+
+/**
+ * UniRTOS ntp ping at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_PING_AT_FUNC
+
+/**
+ * UniRTOS ntp std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_NTP_AT_FUNC
+
+/**
+ * UniRTOS websocket std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_WEBSOCKET_AT_FUNC
+
+/**
+ * UniRTOS websocket std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_DMHTTP_AT_FUNC
+
+/**
+ * UniRTOS LED std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_LED_AT_FUNC
+
+/**
+ * UniRTOS sim std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SIM_AT_FUNC
+
+/**
+ * UniRTOS sms std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SMS_AT_FUNC
+
+/**
+ * UniRTOS network std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_NW_AT_FUNC
+
+/**
+ * UniRTOS qcfg nwscanseq at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCFG_NWSCANSEQ_CMD
+
+/**
+ * UniRTOS usbnet std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_USBNET_AT_FUNC
+
+/**
+ * UniRTOS modem at by pass function
+ *
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_MODEM_AT_BYPASS_FUNC
+
+/**
+ * UniRTOS modem at by pass function convert error code only
+ *
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_MODEM_AT_BYPASS_ERRCODE_ONLY_FUNC
+
+/**
+ * UniRTOS modem device at function
+ *
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_DEV_AT_FUNC
+
+/**
+ * UniRTOS qnwprefcfg at function
+ *
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_QNWPREFCFG_AT_FUNC
+
+/**
+ * UniRTOS qindcfg at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_QINDCFG_AT_FUNC
+
+/**
+ * UniRTOS datacall std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_DATACALL_AT_FUNC
+
+/**
+ * UniRTOS pdp at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_PDP_AT_FUNC
+
+/**
+ * UniRTOS fota at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_FOTA_AT_FUNC
+
+/**
+ * UniRTOS PPP at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_PPP_AT_FUNC
+
+/**
+ * UniRTOS pdp keepalive at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_PDP_KALIVE_FUNC
+
+/**
+ * UniRTOS lbs std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_LBS_AT_FUNC
+
+/**
+ * UniRTOS uart std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_UART_AT_FUNC
+
+/**
+ * UniRTOS sbfota std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SBFOTA_AT_FUNC
+
+/**
+ * UniRTOS uart std AT+IPR at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_IPR_CMD
+
+/**
+ * UniRTOS uart std AT+ICF at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_ICF_CMD
+
+/**
+ * UniRTOS uart std AT+IFC at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_IFC_CMD
+
+/**
+ * UniRTOS uart std AT+NATSPEED at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_NATSPEED_CMD
+
+/**
+ * UniRTOS uart std AT+CBAUD at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CBAUD_CMD
+
+/**
+ * UniRTOS CSUB std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CSUB_CMD
+
+/**
+ * UniRTOS QINF std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QINF_CMD
+
+/**
+ * UniRTOS QGMR std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QGMR_CMD
+
+/**
+ * UniRTOS QPROD std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QPROD_CMD
+
+/**
+ * UniRTOS PROD std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_PROD_CMD
+
+/**
+ * UniRTOS EGMR std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_EGMR_CMD
+
+/**
+ * UniRTOS QSVN std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QSVN_CMD
+
+/**
+ * UniRTOS HVERSION std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_HVERSION_CMD
+
+/**
+ * UniRTOS MODULE std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_MODULE_CMD
+
+/**
+ * UniRTOS QPOWD std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QPOWD_CMD
+
+/**
+ * UniRTOS CBC std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CBC_CMD
+
+/**
+ * UniRTOS QTEMP std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QTEMP_CMD
+
+/**
+ * UniRTOS QCHIPINFO std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCHIPINFO_CMD
+
+/**
+ * UniRTOS QADC std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QADC_CMD
+
+/**
+ * UniRTOS QRESET std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QRESET_CMD
+
+/**
+ * UniRTOS QDOWNLOAD std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QDOWNLOAD_CMD
+
+/**
+ * UniRTOS ATO std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_ATO_CMD
+
+/**
+ * UniRTOS CFUN std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CFUN_CMD
+
+/**
+ * UniRTOS CCLK std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CCLK_CMD
+
+/**
+ * UniRTOS RETSET std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_RETSET_CMD
+
+/**
+ * UniRTOS CVERSION std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CVERSION_CMD
+
+/**
+ * UniRTOS QVERINFO std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QVERINFO_CMD
+
+/**
+ * UniRTOS QAPPVERSION std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QAPPVERSION_CMD
+
+/**
+ * UniRTOS QWSETMAC std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QWSETMAC_CMD
+
+/**
+ * UniRTOS QCFG std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCFG_CMD
+
+/**
+ * The qhttpcfg custom header is displayed when the value is empty
+ */
+#cmakedefine CONFIG_QHTTPCFG_CUSTOM_HEADER_EMPTY_SHOW
+
+/**
+ * Configure AT0 send ok and send fail not to be converted to numbers
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_SENDHEX
+
+/**
+ * Register using the UniRTOS AT parser style at command
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_STYLE_REG_FUNC
+
+/**
+ * qfotadl cmd support ftp fota
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_FTP_FOTA_AT_FUNC
+
+/**
+ * qfotadl cmd support http fota
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_HTTP_FOTA_AT_FUNC
+
+/**
+ * UniRTOS GPIO std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_GPIO_CMD
+
+/**
+ * UniRTOS LPM std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_LPM_FUNC
+
+/**
+ * UniRTOS URC std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_URC_FUNC
+
+/**
+ * UniRTOS rftst std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_FTM_AT_FUNC
+
+/**
+ * UniRTOS qcfg airplanecontrol std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCFG_AIRPLANECONTROL_CMD
+
+/**
+ * UniRTOS QCEER std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_QCEER_AT_FUNC
+
+/**
+ * UniRTOS CEER std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_CEER_AT_FUNC
+
+/**
+ * UniRTOS wifiscan std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_WIFISCAN_AT_FUNC
+
+/**
+ * UniRTOS VSIM std at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QVSIM_FUNC
+
+/**
+ * UniRTOS debug at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QDBGCFG_CMD
+
+/**
+ * UniRTOS debug at dumpcfg function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QDBGCFG_DUMPCFG_CMD
+
+/**
+ * UniRTOS debug at iptrace function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QDBGCFG_IPTRACE_CMD
+
+/**
+ * UniRTOS debug at trace function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QDBGCFG_TRACECFG_CMD
+
+/**
+ * UniRTOS debug at sleep/debug function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QDBGCFG_SLEEP_DEBUG_CMD
+
+/**
+ * UniRTOS debug at memory function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QDBGCFG_MEMORY_SUB_CMD
+
+/**
+ * UniRTOS audio at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QAUDIO_CMD
+
+/**
+ * UniRTOS qfmd5 at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QFMD5_CMD
+
+/**
+ * @brief 配置是否支持AT+QIND: "datastatus" 指示
+ * @brief Set whether to support AT+QIND: "datastatus" indication
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QIND_DATASTATUS_CMD
+
+/**
+ * @brief 配置是否支持AT+QIND: "mode" 指示
+ * @brief Set whether to support AT+QIND: "mode" indication
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QIND_MODE_CMD
+
+/**
+ * @brief 配置是否支持AT+QWRITESIM CMD
+ * @brief Set whether to support AT+QWRITESIM CMD
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QWRITESIM_CMD
+
+/**
+ * UniRTOS flash test at function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_FLASH_TEST_CMD
+
+/**
+ * UniRTOS QESIM AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QESIM_CMD
+
+/**
+ * UniRTOS QUPCHECK AT function
+ */
+#cmakedefine CONFIG_QOSA_EIGEN_PLATFORM_FUNC
+
+/**
+ * UniRTOS QBAND AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_QBAND_AT_FUNC
+
+/**
+ * UniRTOS GNSS AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_GNSS_AT_FUNC
+
+/**
+ * UniRTOS CEMODE AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_CEMODE_AT_FUNC
+
+/**
+ * UniRTOS CGEREP AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_CGEREP_AT_FUNC
+
+/**
+ * UniRTOS CIND AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CIND_CMD
+
+/**
+ * whether QDMZ AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_QDMZ_AT_FUNC
+
+/**
+ * UniRTOS QCFG DHCP CFG AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCFG_DHCP_CFG_CMD
+
+/**
+ * UniRTOS QREDDAAVN AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QREDDAAVN_CMD
+
+/**
+ * UniRTOS OEM LT AT function
+ */
+#cmakedefine CONFIG_QAPP_OEM_LT_AT_FUNC
+
+/**
+ * UniRTOS QCFG PDPREACT AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCFG_PDPREACT_CMD
+
+/**
+ * @brief UniRTOS AUTOAPN function
+ */
+#cmakedefine CONFIG_QAPP_AUTOAPN_AT_FUNC
+
+/**
+ * UniRTOS QCFG SERVICE DOMAIN AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCFG_SERVICE_DOMAIN_CMD
+
+/**
+ * UniRTOS QCFG SIMWPPROTECT AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_QCFG_SIMWPROTECT_CMD
+
+/**
+ * UniRTOS VOICE CALL AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_AT_CALL_CONTROL_CMD
+
+/**
+ * UniRTOS QCFG IMS AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_IMS_AT_FUNC
+
+/**
+ * UniRTOS QCFG CLAT AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_CLAT_AT_FUNC
+
+/**
+ * UniRTOS ABNORMAL BASESTATION AT function
+ */
+#cmakedefine CONFIG_QAPP_UNIRTOS_ABNORMAL_BASESTATION_AT_FUNC
+// ============================================================================
+// UniRTOS ATC SUPPORT STOP
+// ============================================================================
+
+/************************************************************************/
+/* unirtos APPS AT侧业务task栈空间配置                                  */
+/************************************************************************/
+/**
+ * @brief Stack size for PDP notification event handling task
+ * @brief Set the stack size for the PDP notification event handling task.
+ */
+#cmakedefine CONFIG_UNIRTOS_PDP_TASK_STACK_SIZE @CONFIG_UNIRTOS_PDP_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for SMTP QSMTPPUT task
+ * @brief Set the stack size for the SMTP QSMTPPUT task.
+ */
+#cmakedefine CONFIG_UNIRTOS_SMTP_AT_PUT_STACK_SIZE @CONFIG_UNIRTOS_SMTP_AT_PUT_STACK_SIZE@
+
+/**
+ * @brief Stack size for SMTP QSMTPBODY task
+ * @brief Set the stack size for the SMTP QSMTPBODY task.
+ */
+#cmakedefine CONFIG_UNIRTOS_SMTP_BODY_STACK_SIZE @CONFIG_UNIRTOS_SMTP_BODY_STACK_SIZE@
+
+/**
+ * @brief Stack size for PDP network activation success keep-alive task
+ * @brief Set the stack size for the PDP network activation success keep-alive task.
+ */
+#cmakedefine CONFIG_UNIRTOS_NETWORK_PDP_KALIVE_STACK_SIZE @CONFIG_UNIRTOS_NETWORK_PDP_KALIVE_STACK_SIZE@
+
+/**
+ * @brief Stack size for CUIOT MQTT connection information retrieval task
+ * @brief Set the stack size for the CUIOT MQTT connection information retrieval task.
+ */
+#cmakedefine CONFIG_UNIRTOS_CUIOT_MQTT_STACK_SIZE @CONFIG_UNIRTOS_CUIOT_MQTT_STACK_SIZE@
+
+/**
+ * @brief Stack size for CUIOT MQTT self-registration task
+ * @brief Set the stack size for the CUIOT MQTT self-registration task.
+ */
+#cmakedefine CONFIG_UNIRTOS_UNIOT_MQTT_STACK_SIZE @CONFIG_UNIRTOS_UNIOT_MQTT_STACK_SIZE@
+
+/**
+ * @brief Stack size for CUIOT MQTT ATC command set task
+ * @brief Set the stack size for the CUIOT MQTT ATC command set task.
+ */
+#cmakedefine CONFIG_UNIRTOS_UNIFY_MQTT_STACK_SIZE @CONFIG_UNIRTOS_UNIFY_MQTT_STACK_SIZE@
+
+/**
+ * @brief Stack size for FOTADL download task
+ * @brief Set the stack size for the FOTADL download task.
+ */
+#cmakedefine CONFIG_UNIRTOS_FOTADL_TASK_STACK_SIZE @CONFIG_UNIRTOS_FOTADL_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for camera ATC command task
+ * @brief Set the stack size for the file ATC command task.
+ */
+#cmakedefine CONFIG_UNIRTOS_CAMERA_TASK_STACK_SIZE @CONFIG_UNIRTOS_CAMERA_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for file ATC command task
+ * @brief Set the stack size for the file ATC command task.
+ */
+#cmakedefine CONFIG_UNIRTOS_FILE_TASK_STACK_SIZE @CONFIG_UNIRTOS_FILE_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for TCPIP ATC command task processing
+ * @brief Set the stack size for the TCPIP ATC command task processing.
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_TASK_STACK_SIZE @CONFIG_UNIRTOS_TCPIP_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for TCPIP NB ATC command task processing
+ * @brief Set the stack size for the TCPIP ATC command task processing.
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_NB_TASK_STACK_SIZE @CONFIG_UNIRTOS_TCPIP_NB_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for FTP AT command task processing
+ * @brief Set the stack size for the FTP AT command task processing. The default value may vary depending on the platform configuration.
+ */
+#cmakedefine CONFIG_UNIRTOS_FTP_TASK_STACK_SIZE @CONFIG_UNIRTOS_FTP_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for HTTP ATC app internal processing task
+ * @brief Set the stack size for the HTTP ATC app internal processing task.
+ */
+#cmakedefine CONFIG_UNIRTOS_HTTP_TASK_STACK_SIZE @CONFIG_UNIRTOS_HTTP_TASK_STACK_SIZE@
+
+/**
+ * @brief Stack size for HTTP data read thread
+ * @brief Set the stack size for the HTTP data read thread.
+ */
+#cmakedefine CONFIG_UNIRTOS_HTTP_READ_TASK_STACK_SIZE @CONFIG_UNIRTOS_HTTP_READ_TASK_STACK_SIZE@
+
+// ============================================================================
+// UniRTOS AT Standard FUNC option config START
+// ============================================================================
+
+/**
+ * @brief TCPIP ATC功能中显示真实的本地端口,而非客户默认配置的端口
+ * @brief The TCPIP ATC function displays the real local port instead of the default port configured by the customer
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_SUPORT_SHOW_REAL_LOCAL_PORT
+
+/**
+ * @brief TCPIP ATC功能，qicfg="recv/ignore" qicfg="wakeup"查询显示是原样字符串，还是原始十六进制数据,默认是十六进制数据
+ * @brief at+qicfg=recv/ignore Whether to display hexadecimal data
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_RECV_IGNORE_SHOW_TYPE
+
+/**
+ * @brief TCPIP ATC功能，qicfg="recv/ignore" qicfg="wakeup"查询显示是原样字符串，还是原始十六进制数据,默认是十六进制数据
+ * @brief at+qicfg=wakeup Whether to display hexadecimal data
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_WAKEUP_SHOW_TYPE
+
+/**
+ * @brief QPING命令每次超时错误都要上报错误的URC
+ * @brief The URC of the QPING command is reported for each timeout error
+ */
+#cmakedefine CONFIG_UNIRTOS_QPING_EVERY_TIMEOUT_REPORT_URC
+
+/**
+ * @brief QPING RAW 编程平台丢失IPv4 20字节 IPv6 40字节
+ * @brief QPING RAW programming platform lost IPv4 20 bytes IPv6 40 bytes
+ */
+#cmakedefine CONFIG_UNIRTOS_RAW_SOCKET_ICMP_LOSE_IP_HEAD
+
+/**
+ * @brief MQTT QMTPUBEX 不支持不带长度，如果没有输入长度则直接上报错误
+ * @brief MQTT QMTPUBEX does not support no length. If no length is entered, an error is reported directly
+ */
+#cmakedefine CONFIG_UNIRTOS_QMTPUBEX_NOT_SUPPORT_ABSENCE_LENGTH
+
+/**
+ * @brief QICFG TCP 重传配置，与高通9x07一致
+ * @brief QICFG TCP retransmission configuration, consistent with Qualcomm 9x07
+ */
+#cmakedefine CONFIG_UNIRTOS_QICFG_TCP_RETRANSCFG_FOR_QUALCOMM
+
+/**
+ * @brief QFREAD 可以读取长度最小限度平台差异，有些平台可以支持最小长度为0
+ * @brief QFREAD can read minimum platform differences in length, some platforms can support a minimum length of 0
+ */
+#cmakedefine CONFIG_UNIRTOS_QFREAD_MIN_LEN @CONFIG_UNIRTOS_QFREAD_MIN_LEN@
+
+/**
+ * @brief FTP cache 功能最大接收缓存大小
+ * @brief FTP cache, maximum cache length of received data
+ */
+#cmakedefine CONFIG_UNIR_MAX_FTP_RX_DATA_CACHE_HIGH_LEN @CONFIG_UNIR_MAX_FTP_RX_DATA_CACHE_HIGH_LEN@
+
+/**
+ * @brief FTP cache 功能缓存配置大小
+ * @brief The FTP cache function receives the total cache size
+ */
+#cmakedefine CONFIG_UNIR_FTP_CACHE_MAX_LEN @CONFIG_UNIR_FTP_CACHE_MAX_LEN@
+
+/**
+ * @brief FTP cache功能默认配置大小
+ * @brief Default length of FTP case
+ */
+#cmakedefine CONFIG_UNIR_FTP_CACHE_DEFAULT_LEN @CONFIG_UNIR_FTP_CACHE_DEFAULT_LEN@
+
+/**
+ * @brief 配置FILE AT所对应的watermark的low刻度
+ * @brief Set the low watermark scale corresponding to the FILE AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FILE_WATERMARK_LOW @CONFIG_UNIRTOS_FILE_WATERMARK_LOW@
+
+/**
+ * @brief 配置FILE AT所对应的watermark的HIGH刻度
+ * @brief Set a HIGH watermark for FILE AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FILE_WATERMARK_HIGH @CONFIG_UNIRTOS_FILE_WATERMARK_HIGH@
+
+/**
+ * @brief 配置FILE AT所对应的接收watermark最大空间
+ * @brief Set the maximum receiving watermark space for FILE AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FILE_WATERMARK_MAX_LIMIT @CONFIG_UNIRTOS_FILE_WATERMARK_MAX_LIMIT@
+
+/**
+ * @brief 配置FILE AT所对应的发送watermark最大空间
+ * @brief Set the maximum send watermark space for FILE AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FILE_TX_WATERMARK_MAX_LIMIT @CONFIG_UNIRTOS_FILE_TX_WATERMARK_MAX_LIMIT@
+
+/**
+ * @brief 单次从watermark中取出多少数据并写入到文件中，影响文件写入速度
+ * @brief Set the amount of data retrieved from the watermark at a time and written to the file affects the speed of file writing.
+ */
+#cmakedefine CONFIG_UNIRTOS_FILE_WRITE_ONCE_MAX_COUNT @CONFIG_UNIRTOS_FILE_WRITE_ONCE_MAX_COUNT@
+
+/**
+ * @brief 单次从文件中读取多少数据送入到watermark中去，影响数据read速度
+ * @brief The amount of data read from the file at once and sent to the watermark affects the speed of data reading.
+ */
+#cmakedefine CONFIG_UNIRTOS_FILE_READ_ONCE_MAX_COUNT @CONFIG_UNIRTOS_FILE_READ_ONCE_MAX_COUNT@
+
+/**
+ * @brief 配置CAMERA AT所对应的watermark的low刻度
+ * @brief Set the low watermark scale corresponding to the CAMERA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_CAMERA_WATERMARK_LOW @CONFIG_UNIRTOS_CAMERA_WATERMARK_LOW@
+
+/**
+ * @brief 配置CAMERA AT所对应的watermark的HIGH刻度
+ * @brief Set a HIGH watermark for CAMERA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_CAMERA_WATERMARK_HIGH @CONFIG_UNIRTOS_CAMERA_WATERMARK_HIGH@
+
+/**
+ * @brief 配置CAMERA AT所对应的接收watermark最大空间
+ * @brief Set the maximum receiving watermark space for CAMERA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_CAMERA_WATERMARK_MAX_LIMIT @CONFIG_UNIRTOS_CAMERA_WATERMARK_MAX_LIMIT@
+
+/**
+ * @brief 配置CAMERA AT所对应的发送watermark最大空间
+ * @brief Set the maximum send watermark space for CAMERA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_CAMERA_TX_WATERMARK_MAX_LIMIT @CONFIG_UNIRTOS_CAMERA_TX_WATERMARK_MAX_LIMIT@
+
+/**
+ * @brief 单次从文件中读取多少数据送入到watermark中去，影响数据read速度
+ * @brief The amount of data read from the CAMERA at once and sent to the watermark affects the speed of data reading.
+ */
+#cmakedefine CONFIG_UNIRTOS_CAMERA_READ_ONCE_MAX_COUNT @CONFIG_UNIRTOS_CAMERA_READ_ONCE_MAX_COUNT@
+
+/**
+ * @brief MQTT 接收新的publish消息时，如果超过该值，则直接走透传模式输出
+ * @brief When receiving a new publish message via MQTT, if it exceeds the specified value, it will directly switch to passthrough mode for output.
+ */
+#cmakedefine CONFIG_UNIRTOS_MQTT_DEFAULT_PUB_URC_MAX @CONFIG_UNIRTOS_MQTT_DEFAULT_PUB_URC_MAX@
+
+/**
+ * @brief MQTT 可以接收的最大publish消息长度
+ * @brief The maximum publish message length that can be received via MQTT.
+ */
+#cmakedefine CONFIG_UNIRTOS_MQTT_MAX_PUBLISH_MSG_LEN @CONFIG_UNIRTOS_MQTT_MAX_PUBLISH_MSG_LEN@
+
+/**
+ * @brief QHTTPCFG 配置参数显示方式
+ * @brief QHTTPCFG configuration parameter display mode
+ */
+#cmakedefine CONFIG_UNIRTOS_QHTTPCFG_OPTION_VIEW_TYPE
+
+/**
+ * @brief QHTTPCFG custom head显示配置参数显示方式
+ * @brief QHTTPCFG custom head configuration parameter display mode
+ */
+#cmakedefine CONFIG_UNIRTOS_QHTTPCFG_CUSTOM_HEADER_VIEW_TYPE
+
+/**
+ * @brief QFOTADL 使用flash分区
+ * @brief QFOTADL uses flash partitions
+ */
+#cmakedefine CONFIG_UNIRTOS_QFOTADL_USE_FLASH_PARTITION
+
+/**
+ * @brief TCP 服务器关闭后自动断开TCP连接
+ * @brief TCP The TCP connection will be automatically disconnected after the server is shut down
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_LISTENER_CLOSED_WITH_CLIENT
+
+/**
+ * @brief TCP 服务器 incoming URC 在 CONNECT 之前上报
+ * @brief TCP The incoming URC of the server is reported before CONNECT
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_LISTENER_INCOMING_REPORT_BEFORE_CONNECT
+
+/**
+ * @brief QFOTADL 使用文件根文件系统
+ * @brief QFOTADL uses file root file systems
+ */
+#cmakedefine CONFIG_UNIRTOS_QFOTADL_USE_FILE_ROOT_SYSTEM
+
+/** 配置是否支持SSL MFL扩展选项 */
+/** Configure whether to support SSL MFL extension option */
+#cmakedefine CONFIG_UNIRTOS_SSL_MFL_DEFAULT_SUPPORT @CONFIG_UNIRTOS_SSL_MFL_DEFAULT_SUPPORT@
+
+/** 配置是MFL扩展选项默认值 */
+/** Configure MFL extension option default value */
+#cmakedefine CONFIG_UNIRTOS_SSL_MFL_SIZE_DEFAULT @CONFIG_UNIRTOS_SSL_MFL_SIZE_DEFAULT@
+
+/** 配置tcpip的最大socket连接数量 */
+/** Configure the maximum number of socket connections for tcpip */
+#cmakedefine CONFIG_UNIRTOS_APPTCPIP_MAX_SOCKET_CNT_DEFAULT @CONFIG_UNIRTOS_APPTCPIP_MAX_SOCKET_CNT_DEFAULT@
+
+/** 配置tcp的最大incoming socket连接数量 */
+/** Configure the maximum incoming socket connection number for tcp */
+#cmakedefine CONFIG_UNIRTOS_TCP_INCOMING_CLIENT_MAX_NUM_DEFAULT @CONFIG_UNIRTOS_TCP_INCOMING_CLIENT_MAX_NUM_DEFAULT@
+
+/** 配置tcpip的qisend指令是否默认回显 */
+/** Configure whether the qisend command for tcpip is echo by default */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_ECHO_QISEND_DATA_DEFAULT @CONFIG_UNIRTOS_TCPIP_ECHO_QISEND_DATA_DEFAULT@
+
+/** 配置tcpip TCP连接是否在服务器关闭后自动断开 */
+/** Configure whether the tcpip TCP connection is automatically disconnected after the server is closed */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_PASSIVE_CLOSED_DEFAULT @CONFIG_UNIRTOS_TCPIP_PASSIVE_CLOSED_DEFAULT@
+
+/** 配置fota下载进度URC */
+/** Configure fota download progress urc */
+#cmakedefine CONFIG_UNIRTOS_QFOTADL_PROGRESS_URC_DEFAULT @CONFIG_UNIRTOS_QFOTADL_PROGRESS_URC_DEFAULT@
+
+/** 配置“>”号，编辑模式平台默认超时时间 */
+/** Configure the ">" symbol – default timeout for edit mode on the platform */
+#cmakedefine CONFIG_UNIRTOS_EDIT_TIMEOUT_DEFAULT @CONFIG_UNIRTOS_EDIT_TIMEOUT_DEFAULT@
+
+/** 启用该宏后，AT+QICSGP? 命令的返回结果在PDP未定义时,PDP IP类型字段显示IPv4 (值 = 1) */
+#cmakedefine CONFIG_USE_QICSGP_IPV4_ONLY_WHEN_UNDEFINED
+
+/** 启用该宏后，AT+CGDCONT? 命令的返回结果必须至少包含一行 "+CGDCONT: " */
+/** After enabling this macro, the response to the AT+CGDCONT? command must contain at least one line starting with "+CGDCONT: " */
+#cmakedefine CONFIG_UNIRTOS_CGDCONT_REQUIRE_ENTRY
+
+/** 启用该宏后，AT+CGPADDR=? 命令的返回结果将只显示当前已激活的 CID */
+/** When this macro is enabled, the response to the AT+CGPADDR=? command will show only the currently activated CIDs. */
+#cmakedefine CONFIG_UNIRTOS_CGPADDR_ACTIVE_CID_ONLY
+
+/** 启用该宏后，AT+QURCCFG=? 命令的返回结果将包含 uart2 */
+/** After enabling this macro, the return result of AT+QURCCFG=? command will include uart2 */
+#cmakedefine CONFIG_UNIRTOS_QURCCFG_SHOW_UART2_STRING
+
+/** 启用该宏后，AT+QURCCFG=? 命令的返回结果将包含 all */
+/** After enabling this macro, the return result of AT+QURCCFG=? command will include all */
+#cmakedefine CONFIG_UNIRTOS_QURCCFG_SHOW_ALL_STRING
+
+/** FACTORY std at function */
+#cmakedefine CONFIG_QAPP_UNIRTOS_FACTORY_AT_FUNC
+
+/**
+ * @brief 配置fota AT write task size
+ * @brief Set the write task size for FOTA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FOTA_WRITE_TASK_SIZE @CONFIG_UNIRTOS_FOTA_WRITE_TASK_SIZE@
+
+/**
+ * @brief 配置fota AT所对应的发送watermark空间
+ * @brief Set the watermark space for FOTA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FOTA_WATERMARK_LIMIT @CONFIG_UNIRTOS_FOTA_WATERMARK_LIMIT@
+
+/**
+ * @brief 配置fota AT所对应的发送watermark low 门限
+ * @brief Set the watermark space for FOTA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FOTA_WATERMARK_LOW_LIMIT @CONFIG_UNIRTOS_FOTA_WATERMARK_LOW_LIMIT@
+
+/**
+ * @brief 配置fota AT所对应的发送watermark high 门限
+ * @brief Set the watermark space for FOTA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FOTA_WATERMARK_HIGH_LIMIT @CONFIG_UNIRTOS_FOTA_WATERMARK_HIGH_LIMIT@
+
+/**
+ * @brief 配置fota AT所对应 read buffer
+ * @brief Set the watermark space for FOTA AT
+ */
+#cmakedefine CONFIG_UNIRTOS_FOTA_READ_BUFFER_SIZE @CONFIG_UNIRTOS_FOTA_READ_BUFFER_SIZE@
+
+
+/**
+ * @brief Configure the default threshold for TCPIP recv watermark
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_DATA_RECV_WM_DEFAULT_CNT_DEFAULT @CONFIG_UNIRTOS_TCPIP_DATA_RECV_WM_DEFAULT_CNT_DEFAULT@
+/**
+ * @brief Configure the default high watermark threshold for TCPIP recv watermark
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_DATA_RECV_WM_HIGH_CNT_DEFAULT @CONFIG_UNIRTOS_TCPIP_DATA_RECV_WM_HIGH_CNT_DEFAULT@
+/**
+ * @brief Configure the default low watermark threshold for TCPIP recv watermark
+ */
+#cmakedefine CONFIG_UNIRTOS_TCPIP_DATA_RECV_WM_LOW_CNT_DEFAULT @CONFIG_UNIRTOS_TCPIP_DATA_RECV_WM_LOW_CNT_DEFAULT@
+
+/**
+ * @brief flash tast Subinstruction AT;Used to test the difference compensation function
+ *
+ */
+#cmakedefine CONFIG_UNIRTOS_FLASH_REPAIR_ERASE_TEST_AT_FUNC @CONFIG_UNIRTOS_FLASH_REPAIR_ERASE_TEST_AT_FUNC@
+
+// ============================================================================
+// UniRTOS AT Standard FUNC option config STOP
+// ============================================================================
+
+#endif /* _UNIRTOS_ATCMD_CFG_H_ */

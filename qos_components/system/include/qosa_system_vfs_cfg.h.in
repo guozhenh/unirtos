@@ -1,0 +1,86 @@
+/*****************************************************************//**
+* @file qosa_system_vfs_cfg.h
+* @brief Virtual File System configuration
+* @author larson.li@quectel.com
+* @date 2023-06-01
+*
+* @copyright Copyright (c) 2023 Quectel Wireless Solution, Co., Ltd.
+* All Rights Reserved. Quectel Wireless Solution Proprietary and Confidential.
+*
+* @par EDIT HISTORY FOR MODULE
+* <table>
+* <tr><th>Date <th>Version <th>Author <th>Description"
+* <tr><td>2023-06-01 <td>1.0 <td>Larson.Li <td> Init
+* </table>
+**********************************************************************/
+
+#ifndef __QOSA_SYSTEM_VFS_CFG_H__
+#define __QOSA_SYSTEM_VFS_CFG_H__
+
+// Configure file operation related header files called by different platforms, such as linux <sys/stat.h>, if not available, please configure as <stdio.h>
+#cmakedefine CONFIG_QOSA_VFS_SYS_STAT_H @CONFIG_QOSA_VFS_SYS_STAT_H@
+
+// Configure file control related header files for different platforms, such as linux <sys/fcntl.h>
+#cmakedefine CONFIG_QOSA_VFS_SYS_FCNTL_H @CONFIG_QOSA_VFS_SYS_FCNTL_H@
+
+#cmakedefine CONFIG_QOSA_VFS_O_RDONLY @CONFIG_QOSA_VFS_O_RDONLY@
+
+#cmakedefine CONFIG_QOSA_VFS_O_WRONLY @CONFIG_QOSA_VFS_O_WRONLY@
+
+#cmakedefine CONFIG_QOSA_VFS_O_RDWR @CONFIG_QOSA_VFS_O_RDWR@
+
+#cmakedefine CONFIG_QOSA_VFS_O_CREAT @CONFIG_QOSA_VFS_O_CREAT@
+
+#cmakedefine CONFIG_QOSA_VFS_O_EXCL @CONFIG_QOSA_VFS_O_EXCL@
+
+#cmakedefine CONFIG_QOSA_VFS_O_NOCTTY @CONFIG_QOSA_VFS_O_NOCTTY@
+
+#cmakedefine CONFIG_QOSA_VFS_O_TRUNC @CONFIG_QOSA_VFS_O_TRUNC@
+
+#cmakedefine CONFIG_QOSA_VFS_O_APPEND @CONFIG_QOSA_VFS_O_APPEND@
+
+#cmakedefine CONFIG_QOSA_VFS_O_NONBLOCK @CONFIG_QOSA_VFS_O_NONBLOCK@
+
+#cmakedefine CONFIG_QOSA_VFS_O_NDELAY @CONFIG_QOSA_VFS_O_NDELAY@
+
+#cmakedefine CONFIG_QOSA_VFS_O_SYNC @CONFIG_QOSA_VFS_O_SYNC@
+
+#cmakedefine CONFIG_QOSA_VFS_O_NOFOLLOW @CONFIG_QOSA_VFS_O_NOFOLLOW@
+
+#cmakedefine CONFIG_QOSA_VFS_O_DIRECTORY @CONFIG_QOSA_VFS_O_DIRECTORY@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IRWXU @CONFIG_QOSA_VFS_S_IRWXU@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IRUSR @CONFIG_QOSA_VFS_S_IRUSR@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IWUSR @CONFIG_QOSA_VFS_S_IWUSR@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IXUSR @CONFIG_QOSA_VFS_S_IXUSR@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IRWXG @CONFIG_QOSA_VFS_S_IRWXG@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IRGRP @CONFIG_QOSA_VFS_S_IRGRP@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IWGRP @CONFIG_QOSA_VFS_S_IWGRP@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IXGRP @CONFIG_QOSA_VFS_S_IXGRP@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IRWXO @CONFIG_QOSA_VFS_S_IRWXO@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IROTH @CONFIG_QOSA_VFS_S_IROTH@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IWOTH @CONFIG_QOSA_VFS_S_IWOTH@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IXOTH @CONFIG_QOSA_VFS_S_IXOTH@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IFDIR @CONFIG_QOSA_VFS_S_IFDIR@
+
+#cmakedefine CONFIG_QOSA_VFS_S_IFREG @CONFIG_QOSA_VFS_S_IFREG@
+
+#cmakedefine CONFIG_QOSA_VFS_SEEK_SET @CONFIG_QOSA_VFS_SEEK_SET@
+
+#cmakedefine CONFIG_QOSA_VFS_SEEK_CUR @CONFIG_QOSA_VFS_SEEK_CUR@
+
+#cmakedefine CONFIG_QOSA_VFS_SEEK_END @CONFIG_QOSA_VFS_SEEK_END@
+
+#endif /* __QOSA_SYSTEM_VFS_CFG_H__ */

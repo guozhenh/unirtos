@@ -1,0 +1,18 @@
+{
+    "AdditionalBin": [
+        {
+            "binfile": "R://qos_build/gccout/images/firmware_base_release_pack/tmp/ap_updater.bin",
+            "binheader": "R://qos_build/gccout/images/firmware_base_release_pack/tmp/updater_sec_header.bin",
+            "identifier": 0,
+            "imageId": 0,
+            "imageAddr": 0
+        },
+        {
+            "binfile": "R:/qos_build/build/bin/ap_application.bin",
+            "binheader": "R://qos_build/gccout/images/firmware_base_release_pack/tmp/application_sec_header.bin",
+            "identifier": 0,
+            "imageId": 0,
+            "imageAddr": 0
+        }
+    ]
+}

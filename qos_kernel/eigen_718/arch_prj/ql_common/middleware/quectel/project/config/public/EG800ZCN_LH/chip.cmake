@@ -1,0 +1,3 @@
+set(chip_type "ec718hm_H1")
+set(PKG_PRODUCT "EC718HM_PRD")
+set(CHIP_TYPE_BUILD "TYPE_EC718HM")

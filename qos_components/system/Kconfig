@@ -1,0 +1,309 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "UniRTOS system feature"
+
+config QOSA_FEATURE_ALLOW_CHANGE
+    bool
+    default n
+
+config QOSA_OPENCPU_FUNC
+    bool "Open cpu funtion support"
+    default n
+
+config QOSA_VFS_FILESYSTEM_FUNC
+    bool "Virtual file system function module"
+    default y
+
+config QOSA_LINK_LIST_FUNC
+    bool "Bidirectional linked table manipulation functions"
+    default y
+
+config QOSA_BUFFER_BLOCK_FUNC
+    bool "Data service manger function"
+    default y
+
+config QOSA_SSL_FUNC
+    bool "SSL third-party library types"
+    default y
+
+config QOSA_SOCKET_DNS_FUNC
+    bool "Provide synchronous and asynchronous DNS resolution capabilities"
+    default n
+
+config QOSA_EVENT_NOTIFY_FUNC
+    bool "Provide registration notification capability"
+    default y
+
+config QOSA_LOG_DEBUG_FUNC
+    bool "Provide log printing and output capabilities"
+    default y
+
+config QOSA_VSIM_ADAPT_FUNC
+    bool "vsim adapt function support"
+    default n
+
+config QOSA_DATACALL_FUNC
+    bool "Provide PDP management capabilities"
+    select QOSA_EVENT_NOTIFY_FUNC
+    select QOSA_LINK_LIST_FUNC
+    default n
+
+config QOSA_MODEM_DEV_FUNC
+    bool "Provide device management capabilities"
+    default n
+
+config QOSA_NW_FUNC
+    bool "network parameter update and indication report function"
+    depends on QOSA_LINK_LIST_FUNC
+    default n
+
+config QOSA_IMS_FUNC
+    bool "ims parameter update and indication report function"
+    default n
+
+config QOSA_USBNET_FUNC
+    bool "USBNET(ECM/RNDIS/NCM) function"
+    default n
+
+config QOSA_PPP_FUNC
+    bool "QPPP function"
+    default n
+
+config QOSA_SIM_FUNC
+    bool "UniRTOS modem SIM/(U)SIM function support"
+    default n
+
+config QOSA_SIM_HAL_SLOT_NUM
+    int "sim card number" if QOSA_FEATURE_ALLOW_CHANGE
+    default 1
+    range 1 2
+    help
+        could be 1 or 2
+
+config QOSA_SMS_FUNC
+    bool "UniRTOS modem SMS function support"
+    default n
+
+config QOSA_VIRT_AT_FUNC
+    bool "UniRTOS virt AT function support"
+    default n
+
+config QOSA_DSDS_FUNC
+    bool "UniRTOS Dual SIM Dual Standby function support"
+    default n
+
+# If using the built-in UniRTOS library, enable the MBEDTLS3_X_X or MBEDTLS2_X_X macro definition.
+# If not using the built-in UniRTOS library and directly using the platform's native mbedtls library, do not select either.
+# However, the OSA_MBEDTLS_LIBRARY_FUNC macro must also be enabled.
+config QOSA_MBEDTLS_LIBRARY_FUNC
+    bool "mbedtls library types"
+    depends on QOSA_SSL_FUNC
+    default y
+
+config QOSA_MBEDTLS3_X_X_LIBRARY_FUNC
+    bool "mbedtls3_x_x library suport TLS1_3"
+    depends on QOSA_SSL_FUNC
+    depends on QOSA_MBEDTLS_LIBRARY_FUNC
+    default n
+
+config QOSA_MBEDTLS2_X_X_LIBRARY_FUNC
+    bool "mbedtls2_28_x library suport TLS1_1 TLS1_2"
+    depends on QOSA_SSL_FUNC
+    depends on QOSA_MBEDTLS_LIBRARY_FUNC
+    default n
+
+config QOSA_WATERMARK_FUNC
+    bool "watermark function support"
+    depends on QOSA_BUFFER_BLOCK_FUNC
+    depends on QOSA_LINK_LIST_FUNC
+    default y
+
+config QOSA_LINK_SYSTEM_LIBRARIES_FUNC
+    bool "link system libraries function support"
+    default n
+
+config QOSA_UDP_UART_FUNC
+    bool "linux udp uart support"
+    depends on QOSA_LINUX_PLATFORM_FUNC
+    default y
+
+config QOSA_WIFISCAN_FUNC
+    bool "wifiscan function support"
+    default n
+
+config QOSA_FTM_FUNC
+    bool "ftm function support"
+    default n
+
+config QOSA_AT_PARSER_FUNC
+    bool "at cmd parser function"
+    default n
+
+config QOSA_AT_QGMR_APP
+    bool "QGMR with app"
+    default n
+
+config QOSA_LPM_FUNC
+    bool "LPM function"
+    default n
+
+config QOSA_CAMERA_FUNC
+    bool "CAMERA function"
+    default n
+
+config QOSA_LCD_FUNC
+    bool "LCD function"
+    default n
+
+config QOSA_IIC_FUNC
+    bool "IIC function"
+    default n
+
+config QOSA_SPI_FUNC
+    bool "SPI function"
+    default n
+
+config QOSA_AUDIO_DRIVER
+    bool "AUDIO function"
+    default n
+
+config QOSA_LED_FUNC
+    bool "UniRTOS LED function support"
+    default n
+
+config QOSA_LED_GPIO_BLINK_FUNC
+    bool "UniRTOS LED_GPIO_BLINK function support" if QOSA_FEATURE_ALLOW_CHANGE
+    default n
+
+config QOSA_LICENSE_FUNC
+    bool "QOSA_LICENSE TEST function"
+    default n
+
+# qosa flash test func
+config QOSA_FLASH_TEST_FUNC
+    bool "FLASH function"
+    default n
+
+config QOSA_NBIOT_CUST_FUNC
+    bool "NBIOT customized applications"
+    default n
+
+config QOSA_TTS_SUPPORT
+    bool "UniRTOS TTS support"
+    default n
+
+config QOSA_TTS_RESOURCE_TO_FS_SUPPORT
+    bool "UniRTOS TTS resource store to fs support"
+    default n
+
+config QOSA_CODE_DECODER_SUPPORT
+    bool "UniRTOS Code Decoder support"
+    default n
+
+config QOSA_SECBOOT_FUNC
+    bool "UniRTOS Secboot Func"
+    default n
+
+config QOSA_SECBOOT_SUPPORT
+    bool "UniRTOS Secboot support"
+    default n
+
+config QOSA_DTR_FUNC
+    bool "UniRTOS DTR support"
+    default n
+
+config QOSA_OEM_LT_FUNC
+    bool "UniRTOS OEM LT function support"
+    default n
+
+config QOSA_OEM_BSQ_FUNC
+    bool "UniRTOS OEM BSQ function support"
+    default n
+
+config QOSA_OEM_ALLIED_FUNC
+    bool "UniRTOS OEM ALLIED function support"
+    default n
+
+config QOSA_OEM_GENUS_FUNC
+    bool "UniRTOS OEM GENUS function support"
+    default n
+
+config QOSA_CALL_CONTROL_FUNC
+    bool "UniRTOS CONTROL CALL Function support"
+    default n
+
+config QOSA_VOICE_CALL_FUNC
+    bool "UniRTOS VOICE CALL Function support"
+    default n
+
+config QOSA_USBHID_FUNC
+    bool "UniRTOS Secboot Func"
+    default n
+
+config QOSA_CLAT_FUNC
+    bool "UniRTOS CLAT Function support"
+    default n
+
+config QOSA_ABNORMAL_BASESTATION_FUNC
+    bool "UniRTOS ABNORMAL BASESTATION Function support"
+    default n
+#################################################################################################################
+#  Platform control related macro definitions                                                                   #                                                  #
+#     QOSA_LINUX_PLATFORM_FUNC         Primarily used in Linux systems                                          #
+#     OSA_RDA8910_PLATFORM_FUNC        Primarily used for selection during 8910 project adaptation.             #
+#     OSA_RDA8910_R06_PLATFORM_FUNC    8910 R06 has special characteristics as an application replacement.      #
+#     OSA_QCX216_PLATFORM_FUNC         The QCX216 platform also provides application replacement                #
+#     OSA_QCX217_PLATFORM_FUNC         The QCX217 platform also provides application replacement                #
+#     OSA_ASR1903_PLATFORM_FUNC        The ASR1903 platform also provides application replacement               #
+#     OSA_EIGEN718_PLATFORM_FUNC       The EIGEN718 platform also provides application replacement              #
+#                                                                                                               #
+#################################################################################################################
+
+choice
+    prompt "Platform function support" if QOSA_FEATURE_ALLOW_CHANGE
+    default QOSA_LINUX_PLATFORM_FUNC
+
+config QOSA_LINUX_PLATFORM_FUNC
+    bool "linux platform function support"
+    select QOSA_LINK_SYSTEM_LIBRARIES_FUNC
+
+config QOSA_RDA8910_PLATFORM_FUNC
+    bool "RDA8910 platform function support"
+
+config QOSA_RDA8910_R06_PLATFORM_FUNC
+    bool "RDA8910 R06 platform function support"
+
+config QOSA_QCX216_PLATFORM_FUNC
+    bool "QCX216 platform function support"
+
+config QOSA_QCX217_PLATFORM_FUNC
+    bool "QCX217 platform function support"
+
+config QOSA_ASR1903_PLATFORM_FUNC
+    bool "ASR 1903 platform function support"
+
+config QOSA_ASR1805_PLATFORM_FUNC
+    bool "ASR 1805 platform function support"
+
+config QOSA_ASR160X_PLATFORM_FUNC
+    bool "ASR 160X platform function support"
+
+config QOSA_EIGEN718_PLATFORM_FUNC
+    bool "eigen 718 paltform function support"
+
+config QOSA_UIS8852_PLATFORM_FUNC
+    bool "unisoc 8852 paltform function support"
+
+config QOSA_QT2131_PLATFORM_FUNC
+    bool "QT2131 paltform function support"
+
+endchoice
+
+if QOSA_FEATURE_ALLOW_CHANGE
+orsource "system_config.Kconfig"
+orsource "modem/Kconfig.modem"
+endif
+
+endmenu

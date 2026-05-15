@@ -1,0 +1,23 @@
+/* Copyright (C) 2020 UNIRTOS Technologies Limited and/or its affiliates("UNIRTOS").
+ * All rights reserved.
+ */
+
+#ifndef __QOSA_USBNET_CONFIG__H__
+#define __QOSA_USBNET_CONFIG__H__
+
+/**
+ * whether MBIM is supported
+ */
+#cmakedefine CONFIG_QOSA_USBNET_MBIM
+
+/**
+ * whether NCM is supported
+ */
+#cmakedefine CONFIG_QOSA_USBNET_NCM
+
+/**
+ * whether light mode is supported
+ */
+#cmakedefine CONFIG_QOSA_USBNET_LIGHT_MODE
+
+#endif /* __QOSA_USBNET_CONFIG__H__ */

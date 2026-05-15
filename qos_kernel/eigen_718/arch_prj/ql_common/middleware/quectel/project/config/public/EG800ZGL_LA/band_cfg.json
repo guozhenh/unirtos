@@ -1,0 +1,29 @@
+{
+    "version": "1.0",
+    "lte": [
+        "band1",
+        "band2",
+        "band3",
+        "band4",
+        "band5",
+        "band7",
+        "band8",
+        "band12",
+        "band13",
+        "band14",
+        "band17",
+        "band18",
+        "band19",
+        "band20",
+        "band25",
+        "band26",
+        "band28",
+        "band66",
+        "band71",
+        "band34",
+        "band38",
+        "band39",
+        "band40",
+        "band41"
+    ]
+}

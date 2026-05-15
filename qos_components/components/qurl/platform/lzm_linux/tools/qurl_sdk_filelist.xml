@@ -1,0 +1,28 @@
+<!--
+Copyright (C) 2018 RDA Technologies Limited and/or its affiliates("RDA").
+All rights reserved.
+
+This software is supplied "AS IS" without any warranties.
+RDA assumes no responsibility or liability for the use of the software,
+conveys no license or title under any patent, copyright, or mask work
+right to the product. RDA reserves the right to make changes in the
+software without notification.  RDA also make no representation or
+warranty that such application will be suitable for the specified use
+without further testing or modification.
+-->
+
+<!DOCTYPE deliver [
+  <!ENTITY platform_path "platform/lzm_linux">
+]>
+
+<deliver>
+	<file src="&platform_path;/apps/qurl_main.c" dst="qurl_app_main.c"/>
+	<file src="&platform_path;/include/qurl_apps_config.h" dst="apps/include/qurl_apps_config.h"/>
+	<file src="&platform_path;/tools/CMakeLists_sdk.txt" dst="CMakeLists.txt"/>
+	<file src="THIRD_PARTY_NOTICES.md" dst="THIRD_PARTY_NOTICES.md"/>
+	<file src="build/out/libs/libqurl.a" dst="libs/libqurl.a"/>
+	<recursive src="licenses" dst="licenses"/>
+	<recursive src="&platform_path;/mbedtls/libs" dst="libs"/>
+	<recursive src="include" dst="include"/>
+	<recursive src="apps" dst="apps"/>
+</deliver>

@@ -1,0 +1,17 @@
+
+if(CONFIG_QCM_UTILS_UTF8_FUNC)
+    add_subdirectory_if_exist(utf8)
+endif()
+if(CONFIG_QCM_UTILS_UTILS_FUNC)
+    add_subdirectory_if_exist(utils)
+endif()
+if(CONFIG_QCM_UTILS_BASE64_FUNC)
+    add_subdirectory_if_exist(base64)
+endif()
+if(CONFIG_QCM_UTILS_TLV_FUNC)
+    add_subdirectory_if_exist(tlv)
+endif()
+if(CONFIG_QCM_UTILS_XMODEM_FUNC)
+    add_subdirectory_if_exist(xmodem)
+endif()
+
