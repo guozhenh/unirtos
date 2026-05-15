@@ -1,0 +1,142 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "network"
+
+config QOSA_NW_GSM_SUPPORT
+    bool "whether support GSM or not"
+    default y
+
+config QOSA_NW_WCDMA_SUPPORT
+    bool "whether support WCDMA or not"
+    default y
+
+config QOSA_NW_LTE_SUPPORT
+    bool "whether support LTE or not"
+    default y
+
+config QOSA_NW_NR_SUPPORT
+    bool "whether support NR or not"
+    default y
+
+config QOSA_NW_LTE_ONLY
+    bool "is LTE only module?"
+    default n
+
+config QOSA_NW_REJECT_CAUSE_SUPPORT
+    bool "whether support reject cause or not"
+    default y
+
+config UNIRTOS_JAMM_DETECT_SHAKEPERIOD_DEFAULT
+    int "default jamming detect"
+    default 3
+    range 1 10
+    help
+        default jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_RSSI_DEFAULT
+    int "default jamming detect"
+    default -50
+    range -120 -20
+    help
+        default jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_RSSI_MAX
+    int "maximum jamming detect"
+    default -50
+    range -120 -20
+    help
+        maximum jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_RSSI_MIN
+    int "minimum jamming detect"
+    default -50
+    range -120 -20
+    help
+        minimum jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_RSRQ_DEFAULT
+    int "default jamming detect"
+    default -15
+    range -20 0
+    help
+        default jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_RSRQ_MAX
+    int "maximum jamming detect"
+    default -15
+    range -20 0
+    help
+        maximum jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_RSRQ_MIN
+    int "minimum jamming detect"
+    default -15
+    range -20 0
+    help
+        minimum jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_RSRP_DEFAULT
+    int "default jamming detect"
+    default -105
+    range -140 -44
+    help
+        default jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_SINR_DEFAULT
+    int "default jamming detect"
+    default -7
+    range -50 63
+    help
+        default jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_SINR_MAX
+    int "maximum jamming detect"
+    default -7
+    range -50 63
+    help
+        maximum jamming detect supported by network
+
+config UNIRTOS_JAMM_DETECT_SINR_MIN
+    int "minimum jamming detect"
+    default -7
+    range -50 63
+    help
+        minimum jamming detect supported by network
+
+
+config QOSA_OPER_EU_AREA 
+    bool " European Operator"
+    default n
+    help
+        Region Division Operator
+config QOSA_OPER_LA_AREA 
+    bool "Latin America Operator"
+    default n
+    help
+         Region Division Operator
+config QOSA_OPER_NA_AREA
+    bool "North America Operator"
+    default n
+    help
+        Region Division Operator
+config QOSA_OPER_OC_AREA
+    bool "Oceania Operator"
+    default n
+    help
+        Region Division Operator
+config QOSA_OPER_CN_AREA
+    bool "Asia Area Operator"
+    default n
+    help
+        Region Division Operator Asia including India
+config QOSA_OPER_GL_AREA
+    bool "GLOBAL OPER  Operator "
+    default n
+    help
+        Enable global operator area configuration for QOSA,This allows the modem to use global network/PLMN settings.
+endmenu
+ 
+
+

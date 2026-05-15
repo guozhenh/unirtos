@@ -1,0 +1,19 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "usbnet"
+
+config QOSA_USBNET_MBIM
+    bool "MBIM"
+    default n
+
+config QOSA_USBNET_NCM
+    bool "NCM"
+    default n
+
+config QOSA_USBNET_LIGHT_MODE
+    bool "Light Mode"
+    default n
+
+endmenu

@@ -1,0 +1,52 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "datacall"
+
+config QOSA_DATACALL_LIGHT_MODE
+    bool "datacall light mode"
+    default y
+    help
+        enable datacall light mode, which means the OSA datacall application in the OSA layer will not maintain the DATACALL state
+
+config QOSA_DATACALL_MPC_DEFINED_MASK
+    bool "MPC defined mask"
+    default n
+    help
+        enable MPC defined mask in datacall light mode, which means that "datacall pdp defined" flag will be set in MPC layer
+
+config QOSA_DATACALL_PROFILES_STORE_IN_MPC
+    bool "profiles store in MPC"
+    default y if QOSA_DATACALL_LIGHT_MODE
+    default n
+    help
+        enable profiles store in MPC layer, which means that the profiles will be stored in MPC layer instead of OSA layer
+
+config QOSA_DATACALL_LIGHT_MODE_SUPPORT_USBNET
+    bool "support USBNET"
+    default n
+    help
+        enable support for USBNET in datacall light mode
+
+config QOSA_DATACALL_LIGHT_MODE_SUPPORT_PPP
+    bool "support PPP"
+    default n
+    help
+        enable support for PPP in datacall light mode
+
+config QOSA_DATACALL_PDPID_MAX
+    int "maximum PDPID"
+    default 7
+    range 1 65535
+    help
+        maximum PDPID supported by modem
+
+config QOSA_MODEM_TASK_STACK_SIZE
+    int "unirtos modem task size"
+    default 16
+    range 0 16
+    help
+        unirtos modem task size
+
+endmenu

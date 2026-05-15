@@ -1,0 +1,115 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "Network AT config"
+
+
+config QOSA_MODEM_AT_NW_RSSI_QCSQ_LTE_SPEC
+    bool "Whether QCSQ command displays RSSI value in special format under LTE system"
+    default n
+    help
+        If n, the absolute value of the measurement will be used
+
+config QOSA_MODEM_AT_NW_RSSI_QCSQ_LTE_SPEC_VAL
+    int "Special RSSI value format for QCSQ command under LTE system 0: Use measurement value 1: Use reported value 2: Use absolute value of measurement (default)"
+    default 2
+    range 0 2
+    help
+        This configuration will affect the RSSI parameter format in QCSQ command and URC under LTE system
+
+config QOSA_MODEM_AT_NW_RSSI_QCSQ_GSM_SPEC
+    bool "Whether QCSQ command displays RSSI value in special format under GSM system"
+    default n
+    help
+        If n, the absolute value of the measurement will be used
+
+config QOSA_MODEM_AT_NW_RSSI_QCSQ_GSM_SPEC_VAL
+    int "Special RSSI value format for QCSQ command under GSM system 0: Use measurement value 1: Use reported value 0~31 2: Use reported value 0~63 3: Use absolute value of measurement (default)"
+    default 3
+    range 0 3
+    help
+        This configuration will affect the RSSI parameter format in QCSQ command under GSM system
+
+config QOSA_MODEM_AT_NW_RXLEV_QENG_GSM_SPEC
+    bool "Whether QENG command displays RXLEV value in special format under GSM system"
+    default n
+    help
+        If n, the measurement value will be used
+
+config QOSA_MODEM_AT_NW_RXLEV_QENG_GSM_SPEC_VAL
+    int "Special RXLEV value format for QENG command under GSM system 0: Use measurement value (default) 1: Use reported value 0~31 2: Use reported value 0~63 3: Use absolute value of measurement"
+    default 0
+    range 0 3
+    help
+        This configuration will affect the RXLEV parameter format in QENG command under GSM system
+
+config QOSA_MODEM_AT_NW_RXLEV_QCELL_GSM_SPEC
+    bool "Whether QCELL command displays RXLEV value in special format under GSM system"
+    default n
+    help
+        If n, the measurement value will be used
+
+config QOSA_MODEM_AT_NW_RXLEV_QCELL_GSM_SPEC_VAL
+    int "Special RXLEV value format for QCELL command under GSM system 0: Use measurement value (default) 1: Use reported value 0~31 2: Use reported value 0~63 3: Use absolute value of measurement"
+    default 0
+    range 0 3
+    help
+        This configuration will affect the RXLEV parameter format in QCELL command under GSM system
+
+config QOSA_MODEM_AT_NW_RXLEV_QOPS_GSM_SPEC
+    bool "Whether QOPS command displays RXLEV value in special format under GSM system"
+    default n
+    help
+        If n, the reported value will be used
+
+config QOSA_MODEM_AT_NW_RXLEV_QOPS_GSM_SPEC_VAL
+    int "Special RXLEV value format for QOPS command under GSM system 0: Use measurement value 1: Use reported value 0~31 2: Use reported value 0~63 (default) 3: Use absolute value of measurement"
+    default 2
+    range 0 3
+    help
+        1. This configuration will affect the RXLEV parameter format in QOPS command under GSM system
+
+config QOSA_MODEM_AT_NW_SINR_QCSQ_SPEC
+    bool "Whether QCSQ command displays SINR value in special format"
+    default n
+    help
+        1. If n, SINR value in (x+20)*5 format will be used
+
+config QOSA_MODEM_AT_NW_SINR_QCSQ_SPEC_VAL
+    int "Special SINR parameter format in QCSQ command 0: Use measurement value 1: Use reported value 2: Use special algorithm value (default)"
+    default 2
+    range 0 2
+    help
+        1. This configuration will affect the SINR parameter format in QCSQ command and URC
+
+config QOSA_MODEM_AT_NW_SINR_QENG_SPEC
+    bool "Whether QENG command displays SINR value in special format"
+    default n
+    help
+        1. If n, SINR value of measurement will be used
+
+config QOSA_MODEM_AT_NW_SINR_QENG_SPEC_VAL
+    int "Special SINR parameter format in QENG command 0: Use measurement value (default) 1: Use reported value 2: Use special algorithm value"
+    default 0
+    range 0 2
+    help
+        1. This configuration will affect the SINR parameter format in QENG command
+
+config QOSA_MODEM_AT_NW_SINR_QCELL_SPEC
+    bool "Whether QCELL command displays SINR value in special format"
+    default n
+    help
+        1. If n, SINR value of measurement will be used
+
+config QOSA_MODEM_AT_NW_SINR_QCELL_SPEC_VAL
+    int "Special SINR parameter format in QCELL command 0: Use measurement value (default) 1: Use reported value 2: Use special algorithm value"
+    default 0
+    range 0 2
+    help
+        1. This configuration will affect the SINR parameter format in QCELL command
+
+endmenu
+
+menu "SIM AT config"
+endmenu

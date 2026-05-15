@@ -1,0 +1,5 @@
+orsource "config/Kconfig.modem.at"
+orsource "config/Kconfig.modem.sim"
+orsource "config/Kconfig.modem.usbnet"
+orsource "config/Kconfig.modem.network"
+orsource "config/Kconfig.modem.datacall"

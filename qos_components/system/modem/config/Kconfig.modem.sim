@@ -1,0 +1,60 @@
+# Copyright (C) 2023 UniRTOS.
+# All rights reserved.
+#
+
+menu "sim"
+
+config QOSA_SIM_FACILITY_AB
+    bool "AB"
+    default n
+
+config QOSA_SIM_FACILITY_AC
+    bool "AC"
+    default n
+
+config QOSA_SIM_FACILITY_AG
+    bool "AG"
+    default n
+
+config QOSA_SIM_FACILITY_AI
+    bool "AI"
+    default n
+
+config QOSA_SIM_FACILITY_AO
+    bool "AO"
+    default n
+
+config QOSA_SIM_FACILITY_IR
+    bool "IR"
+    default n
+
+config QOSA_SIM_FACILITY_OI
+    bool "OI"
+    default n
+
+config QOSA_SIM_FACILITY_OX
+    bool "OX"
+    default n
+
+config QOSA_SIM_FACILITY_SC
+    bool "SC"
+    default y
+
+config QOSA_SIM_FACILITY_P2
+    bool "P2"
+    default n
+
+config QOSA_SIM_CRSM_P3_ZERO_REPLACED_BY_FF
+    bool "replace 0 by 0xff for CRSM p3"
+    default n
+
+
+config QOSA_SIM_LOGICAL_CHANNEL_NUM
+    int "logical channel numbers for spceical platform"
+    default 8
+
+config QOSA_SIM_DIFF_USE_MPC_SIM_INIT
+    bool "whether get sim/sms/pbk init status data from MPC"
+    default n
+
+endmenu
