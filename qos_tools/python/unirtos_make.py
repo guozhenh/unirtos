@@ -52,9 +52,15 @@ class BuildConfig:
     build_modemapp: str = DEFAULT_BUILD_MODEMAPP
     build_oem: str = DEFAULT_BUILD_OEM
 
-    @property
-    def output_dir(self) -> Path:
-        return sdk_root() / "qos_build" / "release" / self.version
+
+def resolve_output_root() -> Path:
+    """Resolve output root directory (prefer external app dir when provided)."""
+    external_app_dir = os.environ.get("UNIRTOS_EXTERNAL_APP_DIR", "").strip()
+    if external_app_dir:
+        external_root = Path(external_app_dir).expanduser().resolve()
+        external_root.mkdir(parents=True, exist_ok=True)
+        return external_root
+    return sdk_root()
 
 
 def print_make_usage():
@@ -199,18 +205,18 @@ def build_environment(toolchain_root: Path, config: BuildConfig, arch: str):
     return env
 
 
-def clean_for_new(root: Path):
-    current_build_dir = build_dir(root)
-    current_output_dir = output_dir(root)
+def clean_for_new(output_root: Path):
+    current_build_dir = build_dir(output_root)
+    current_output_dir = output_dir(output_root)
     if current_build_dir.exists():
         shutil.rmtree(current_build_dir)
     if current_output_dir.exists():
         shutil.rmtree(current_output_dir)
 
 
-def ensure_gccout_for_app(root: Path, arch: str, project: str, toolchain_root: Path):
-    firmware_pack = firmware_pack_path(root)
-    gccout_dir = gccout_dir_path(root)
+def ensure_gccout_for_app(sdk_root_path: Path, output_root: Path, arch: str, project: str, toolchain_root: Path):
+    firmware_pack = firmware_pack_path(output_root)
+    gccout_dir = gccout_dir_path(output_root)
     gccout_libraries = gccout_dir / "libraries"
 
     if firmware_pack.exists() and gccout_libraries.exists():
@@ -223,7 +229,7 @@ def ensure_gccout_for_app(root: Path, arch: str, project: str, toolchain_root: P
             EXIT_PREREQUISITE_ERROR,
         )
 
-    archive = gccout_archive_path(root, arch, project)
+    archive = gccout_archive_path(sdk_root_path, arch, project)
     if not archive.exists():
         raise BuildError(
             f"missing gccout and archive not found: {archive}",
@@ -237,7 +243,7 @@ def ensure_gccout_for_app(root: Path, arch: str, project: str, toolchain_root: P
             EXIT_PREREQUISITE_ERROR,
         )
 
-    target_qos_build = qos_build_dir_path(root)
+    target_qos_build = qos_build_dir_path(output_root)
     target_qos_build.mkdir(exist_ok=True)
     if gccout_dir.exists():
         shutil.rmtree(gccout_dir)
@@ -245,7 +251,7 @@ def ensure_gccout_for_app(root: Path, arch: str, project: str, toolchain_root: P
     info(f"extract gccout archive: {archive}")
     run_command(
         [str(seven_zip), "x", "-y", str(archive), f"-o{target_qos_build}"],
-        cwd=root,
+        cwd=sdk_root_path,
         label="extract gccout archive",
         exit_code=EXIT_PREREQUISITE_ERROR,
     )
@@ -259,15 +265,15 @@ def ensure_gccout_for_app(root: Path, arch: str, project: str, toolchain_root: P
     info("gccout prepared for app build")
 
 
-def ensure_compatible_build_cache(root: Path):
-    current_build_dir = build_dir(root)
+def ensure_compatible_build_cache(source_root: Path, output_root: Path):
+    current_build_dir = build_dir(output_root)
     cache_file = current_build_dir / "CMakeCache.txt"
     if not cache_file.exists():
         return
 
     # Older bat-based flows could generate cache entries from a virtual drive path.
     # Reuse only when the current SDK root matches the cached home directory.
-    expected_home = normalize_path(root)
+    expected_home = normalize_path(source_root)
     current_home = None
     with cache_file.open("r", encoding="utf-8", errors="ignore") as fp:
         for line in fp:
@@ -283,19 +289,19 @@ def ensure_compatible_build_cache(root: Path):
         shutil.rmtree(current_build_dir)
 
 
-def run_platform_build(root: Path, config: BuildConfig, arch: str, python_exe: Path):
-    arch_prj_path = arch_project_dir(root, arch)
+def run_platform_build(source_root: Path, config: BuildConfig, arch: str, python_exe: Path):
+    arch_prj_path = arch_project_dir(source_root, arch)
     if not arch_prj_path.exists():
         raise BuildError(f"platform project path not found: {arch_prj_path}", EXIT_PLATFORM_BUILD_ERROR)
 
-    (root / "qos_build").mkdir(exist_ok=True)
+    (source_root / "qos_build").mkdir(exist_ok=True)
 
-    pre_write_root_path = root / "qos_tools" / "python" / "pre_write_root_path.py"
-    qos_components_path = root / "qos_components"
+    pre_write_root_path = source_root / "qos_tools" / "python" / "pre_write_root_path.py"
+    qos_components_path = source_root / "qos_components"
 
     run_command(
         [str(python_exe), str(pre_write_root_path), str(arch_prj_path), str(qos_components_path)],
-        cwd=root,
+        cwd=source_root,
         label="prepare platform root path",
         exit_code=EXIT_PLATFORM_BUILD_ERROR,
     )
@@ -317,22 +323,32 @@ def run_platform_build(root: Path, config: BuildConfig, arch: str, python_exe: P
         cmd.append(config.build_oem)
     run_command(cmd, cwd=arch_prj_path, label="platform build", exit_code=EXIT_PLATFORM_BUILD_ERROR)
 
-def run_cmake_and_ninja(root: Path, env, toolchain_root: Path, python_exe: Path):
-    current_build_dir = build_dir(root)
+def run_cmake_and_ninja(source_root: Path, output_root: Path, env, toolchain_root: Path, python_exe: Path):
+    current_build_dir = build_dir(output_root)
+    current_build_dir.mkdir(parents=True, exist_ok=True)
     cmake_exe = toolchain_root / "cmake-3.28.0" / "bin" / "cmake.exe"
     ninja_exe = toolchain_root / "ninja-win-1.12.1" / "ninja.exe"
 
+    ext_app_dir = env.get("UNIRTOS_EXTERNAL_APP_DIR", "")
+    ext_app_name = env.get("UNIRTOS_EXTERNAL_APP_NAME", "")
+
+    cmake_cmd = [
+        str(cmake_exe),
+        "-B",
+        str(current_build_dir),
+        "-G",
+        "Ninja",
+        f"-DCMAKE_MAKE_PROGRAM={ninja_exe}",
+        f"-DPython_EXECUTABLE={python_exe}",
+    ]
+    if ext_app_dir:
+        cmake_cmd.append(f"-DUNIRTOS_EXTERNAL_APP_DIR={ext_app_dir}")
+    if ext_app_name:
+        cmake_cmd.append(f"-DUNIRTOS_EXTERNAL_APP_NAME={ext_app_name}")
+
     run_command(
-        [
-            str(cmake_exe),
-            "-B",
-            str(current_build_dir),
-            "-G",
-            "Ninja",
-            f"-DCMAKE_MAKE_PROGRAM={ninja_exe}",
-            f"-DPython_EXECUTABLE={python_exe}",
-        ],
-        cwd=root,
+        cmake_cmd,
+        cwd=source_root,
         env=env,
         label="cmake configure",
         exit_code=EXIT_CMAKE_ERROR,
@@ -346,7 +362,7 @@ def run_cmake_and_ninja(root: Path, env, toolchain_root: Path, python_exe: Path)
     )
 
 
-def print_summary(config: BuildConfig, arch: str, toolchain_root: Path):
+def print_summary(config: BuildConfig, arch: str, toolchain_root: Path, source_root: Path, output_root: Path):
     info("configuration")
     print(f"  project   : {config.project}")
     print(f"  version   : {config.version}")
@@ -355,6 +371,8 @@ def print_summary(config: BuildConfig, arch: str, toolchain_root: Path):
     print(f"  jobs      : {config.build_tasknum}")
     print(f"  arch      : {arch}")
     print(f"  toolchain : {toolchain_root}")
+    print(f"  source    : {source_root}")
+    print(f"  output    : {output_root}")
 
 
 def handle_make(args):
@@ -362,13 +380,23 @@ def handle_make(args):
     if config is None:
         return 0
 
-    root = sdk_root()
+    source_root = sdk_root()
+    output_root = resolve_output_root()
+    external_app_mode = bool(os.environ.get("UNIRTOS_EXTERNAL_APP_DIR", "").strip())
     toolchain_root = resolve_toolchain_root()
     python_exe = resolve_python(toolchain_root)
-    arch = resolve_build_arch(root, config.project)
+    arch = resolve_build_arch(source_root, config.project)
     env = build_environment(toolchain_root, config, arch)
+    env["UNIRTOS_OUTPUT_ROOT"] = str(output_root)
 
-    print_summary(config, arch, toolchain_root)
+    print_summary(config, arch, toolchain_root, source_root, output_root)
+
+    if external_app_mode and config.build_type != "app":
+        raise BuildError(
+            "external app mode supports only type=app when all outputs must stay in app directory",
+            EXIT_ARGUMENT_ERROR,
+        )
+
     if config.build_type == "all":
         info("warning: all path is implemented but not validated in the current environment")
     else:
@@ -376,20 +404,20 @@ def handle_make(args):
 
     # new does a clean build; r keeps the build tree when the cache is still reusable.
     if config.operation == "new":
-        clean_for_new(root)
+        clean_for_new(output_root)
     else:
-        ensure_compatible_build_cache(root)
+        ensure_compatible_build_cache(source_root, output_root)
 
     # all first prepares platform-side artifacts; app reuses or restores gccout prereq.
     if config.build_type == "all":
-        run_platform_build(root, config, arch, python_exe)
+        run_platform_build(source_root, config, arch, python_exe)
     else:
-        ensure_gccout_for_app(root, arch, config.project, toolchain_root)
+        ensure_gccout_for_app(source_root, output_root, arch, config.project, toolchain_root)
 
-    run_cmake_and_ninja(root, env, toolchain_root, python_exe)
+    run_cmake_and_ninja(source_root, output_root, env, toolchain_root, python_exe)
 
     info("build succeeded")
     print(f"[unirtos make] project : {config.project}")
     print(f"[unirtos make] version : {config.version}")
-    print(f"[unirtos make] output  : {config.output_dir}")
+    print(f"[unirtos make] output  : {output_root / 'qos_build' / 'release' / config.version}")
     return 0

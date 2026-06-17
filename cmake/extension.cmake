@@ -72,6 +72,13 @@ function(add_apps_libraries)
     set_property(GLOBAL PROPERTY apps_libraries ${apps_libraries} ${ARGN})
 endfunction()
 
+# Set libraries that must participate in final firmware link but are not app targets.
+# Typical use case: external libraries discovered from env_config.json.
+function(add_firmware_link_libraries)
+    get_property(firmware_link_libraries GLOBAL PROPERTY firmware_link_libraries)
+    set_property(GLOBAL PROPERTY firmware_link_libraries ${firmware_link_libraries} ${ARGN})
+endfunction()
+
 
 # add_subdirectory_if_exist - If there is a CMakeLists.txt file in the current dir directory, add it
 # Check if folder exists, if it does, add the corresponding folder directory

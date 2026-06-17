@@ -108,7 +108,7 @@ set(OUTPUT_RELEASE_DIR "${UNIRTOS_BUILD_OUT}/release")
 
 if(NOT unirtos_csdk_build STREQUAL "y")
 execute_process(
-    COMMAND ${CMAKE_COMMAND} -E remove_directory {FIRMWARE_DIR}
+    COMMAND ${CMAKE_COMMAND} -E remove_directory ${FIRMWARE_DIR}
     COMMAND "${7Z_EXE}" x -y "${FIRMWARE_7Z}" "-o${FIRMWARE_DIR}"
     RESULT_VARIABLE unzip_result
 )
