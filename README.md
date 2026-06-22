@@ -33,33 +33,61 @@ UniRTOS SDK is a unified embedded development kit for multiple Quectel cellular 
 
 ## Quick Start
 
-### Environment Setup
+### 1. Install Toolchain and CLI
 
-Refer to the [Quick Start Guide](https://docs.quectel.com/zh/UniRTOS/UniRTOS%E6%96%87%E6%A1%A3/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B.html) to learn how to set up the development environment and obtain the cross-compilation toolchain, flashing tools, and related dependencies.
+- [Development Preparation](https://www.quectel.com.cn/unirtos/docs?docs_page=%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87/%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87.html)
+- [Install Cross-Compilation Toolchain](https://www.quectel.com.cn/unirtos/docs?docs_page=%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html)
+- [Install Python3](https://www.python.org/downloads/)
+- [Install Git](https://git-scm.com)
+- Install `unirtos-cli`: `pip install unirtos-cli`
 
-### Build Examples
-> `unirtos` is the main entry command of UniRTOS SDK for one-click build, configuration, and compilation operations. It is provided by the cross-compilation toolchain package.
-```sh
-# 1. Build in one command
-unirtos make <project> <version>
-# Example:
-unirtos make EG800ZCN_LA EG800ZCNLAR01A01_BETA_OCPU_20260513
+Verify the environment:
 
-# 2. Run menuconfig
-unirtos menuconfig
+```bash
+python --version # Python3
+git --version
+unirtos --version # 1.0.5 or later
+unirtos-cli version # 1.0.8 or later
+```
 
-# 3. Clean build outputs
-unirtos make clean
+### 2. Create a Project with unirtos-cli
+
+```bash
+unirtos-cli new unirtos-app
+cd unirtos-app
+```
+
+Edit `env_config.json` and configure at least:
+- `sdk.version`
+- `build.module`
+
+Optional fields:
+- `build.version`
+- `libraries.list`
+
+### 3. Pull SDK and Libraries
+
+```bash
+unirtos-cli env-setup
+```
+
+### 4. Configure, Build, and Clean
+
+```bash
+unirtos-cli menuconfig
+unirtos-cli build
+unirtos-cli clean
 ```
 
 ### Build Outputs
-- Build outputs are located at `qos_build/release/<version>/`.
+- Build outputs are generated in `qos_build/release/<version>/` under the project directory.
 
 ## Community Forum
 [Visit the Forum](https://forumschinese.quectel.com/c/66-category/66)
 
 ## Contribution Guide
 Issues and pull requests are welcome.
+Please include a clear change summary and basic verification results in your submission.
 
 ---
 
