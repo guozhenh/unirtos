@@ -124,6 +124,12 @@ if(NOT DEFINED UNIRTOS_EXTERNAL_APP_NAME)
     endif()
 endif()
 
+if(NOT DEFINED UNIRTOS_APP_MENUCONFIG_DIR)
+    if(DEFINED ENV{UNIRTOS_APP_MENUCONFIG_DIR} AND NOT "$ENV{UNIRTOS_APP_MENUCONFIG_DIR}" STREQUAL "")
+        set(UNIRTOS_APP_MENUCONFIG_DIR "$ENV{UNIRTOS_APP_MENUCONFIG_DIR}")
+    endif()
+endif()
+
 if(DEFINED UNIRTOS_EXTERNAL_APP_DIR)
     file(TO_CMAKE_PATH "${UNIRTOS_EXTERNAL_APP_DIR}" UNIRTOS_EXTERNAL_APP_DIR)
     get_filename_component(UNIRTOS_EXTERNAL_APP_DIR "${UNIRTOS_EXTERNAL_APP_DIR}" ABSOLUTE)
@@ -310,6 +316,44 @@ foreach(external_app_dir ${EXTERNAL_QOS_APPLICATION_DIRS})
         list(APPEND EXTERNAL_APP_DEPEND_CONFIGS ${external_app_depend_config})
     endif()
 endforeach()
+
+# Resolve menuconfig source config path with the following priority:
+# 1) KCONFIG_CONFIG environment variable
+# 2) UNIRTOS_APP_MENUCONFIG_DIR (CLI/build injected)
+# 3) External app default: <external_app>/menuconfig/.config
+# 4) Builtin demo default when exactly one selected build dir exists: qos_applications/<demo>/menuconfig/.config
+# 5) SDK root .config
+set(RESOLVED_SRC_CONFIG "")
+if(DEFINED ENV{KCONFIG_CONFIG} AND NOT "$ENV{KCONFIG_CONFIG}" STREQUAL "")
+    file(TO_CMAKE_PATH "$ENV{KCONFIG_CONFIG}" RESOLVED_SRC_CONFIG)
+elseif(DEFINED UNIRTOS_APP_MENUCONFIG_DIR AND NOT "${UNIRTOS_APP_MENUCONFIG_DIR}" STREQUAL "")
+    file(TO_CMAKE_PATH "${UNIRTOS_APP_MENUCONFIG_DIR}" APP_MENUCONFIG_DIR)
+    if(NOT IS_ABSOLUTE "${APP_MENUCONFIG_DIR}")
+        get_filename_component(APP_MENUCONFIG_DIR "${APP_MENUCONFIG_DIR}" ABSOLUTE)
+    endif()
+    set(RESOLVED_SRC_CONFIG "${APP_MENUCONFIG_DIR}/.config")
+elseif(DEFINED UNIRTOS_EXTERNAL_APP_DIR)
+    set(RESOLVED_SRC_CONFIG "${UNIRTOS_EXTERNAL_APP_DIR}/menuconfig/.config")
+elseif(DEFINED SELECTED_APP_BUILD_DIRS)
+    list(LENGTH SELECTED_APP_BUILD_DIRS SELECTED_APP_BUILD_DIRS_LEN)
+    if(SELECTED_APP_BUILD_DIRS_LEN EQUAL 1)
+        list(GET SELECTED_APP_BUILD_DIRS 0 SINGLE_SELECTED_APP_DIR)
+        set(RESOLVED_SRC_CONFIG "${QOS_APPLICATIONS_DIR}/${SINGLE_SELECTED_APP_DIR}/menuconfig/.config")
+    endif()
+endif()
+
+if(NOT "${RESOLVED_SRC_CONFIG}" STREQUAL "")
+    file(TO_CMAKE_PATH "${RESOLVED_SRC_CONFIG}" SRC_CONFIG)
+endif()
+
+if(NOT IS_ABSOLUTE "${SRC_CONFIG}")
+    get_filename_component(SRC_CONFIG "${SRC_CONFIG}" ABSOLUTE)
+endif()
+
+get_filename_component(SRC_CONFIG_DIR "${SRC_CONFIG}" DIRECTORY)
+execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${SRC_CONFIG_DIR})
+set(ENV{KCONFIG_CONFIG} "${SRC_CONFIG}")
+message(STATUS "INFO: menuconfig source config path: ${SRC_CONFIG}")
 
 
 message("toolchain.cmake=${QL_KERNEL_DIR}/${build_arch}/scripts/toolchain.cmake")
