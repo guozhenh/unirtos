@@ -113,12 +113,19 @@ if(NOT unirtos_csdk_build STREQUAL "y")
 if(NOT EXISTS "${FIRMWARE_REQUIRED_FILE_1}" OR NOT EXISTS "${FIRMWARE_REQUIRED_FILE_2}" OR NOT EXISTS "${FIRMWARE_REQUIRED_FILE_3}")
     message(STATUS "Extracting base firmware package: ${FIRMWARE_7Z}")
     execute_process(
-        COMMAND ${CMAKE_COMMAND} -E remove_directory ${FIRMWARE_DIR}
+        COMMAND ${CMAKE_COMMAND} -E remove_directory "${FIRMWARE_DIR}"
+        RESULT_VARIABLE remove_result
+    )
+    if(NOT remove_result EQUAL 0)
+        message(FATAL_ERROR "remove failed, result=${remove_result}")
+    endif()
+
+    execute_process(
         COMMAND "${7Z_EXE}" x -y -aoa "${FIRMWARE_7Z}" "-o${FIRMWARE_DIR}"
         RESULT_VARIABLE unzip_result
     )
     if(NOT unzip_result EQUAL 0)
-        message(FATAL_ERROR "Failed to extract archive.7z")
+        message(FATAL_ERROR "7z extract failed, result=${unzip_result}")
     endif()
 else()
     message(STATUS "Reusing extracted base firmware package: ${FIRMWARE_DIR}")
