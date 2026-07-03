@@ -76,7 +76,7 @@ if(CONFIG_QOSA_LINK_SYSTEM_LIBRARIES_FUNC)
 endif()
 
 # Define source files to add, if dependent targets are needed as well
-if(CONFIG_QCM_FILE_API_FUNC)
+if(CONFIG_QAPP_UNIRTOS_FILE_AT_FUNC)
     list(APPEND FILES_TO_ADD "${apps_file_dir}/unirtos_file_handler.c")
     list(APPEND FILES_TO_ADD "${apps_file_dir}/unirtos_atcmd_file.c")
     list(APPEND LINK_LIB qcm_file)
