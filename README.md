@@ -47,7 +47,7 @@ Verify the environment:
 python --version # Python3
 git --version
 unirtos --version # 1.0.5 or later
-unirtos-cli version # 1.0.11 or later
+unirtos-cli version # 1.0.15 or later
 ```
 
 ### 2. Create a Project with unirtos-cli
