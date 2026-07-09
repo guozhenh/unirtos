@@ -380,7 +380,7 @@ config QAPP_UNIRTOS_AT_QADC_CMD
 config QAPP_UNIRTOS_AT_QRESET_CMD
     bool "UniRTOS AT+QRESET CMD"
     select QAPP_UNIRTOS_STD_FUNC
-    default n
+    default y
 
 config QAPP_UNIRTOS_AT_QDOWNLOAD_CMD
     bool "UniRTOS AT+QDOWNLOAD CMD"
